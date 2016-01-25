@@ -15,6 +15,9 @@ var essentials = [
   'Extra Food (Energy Bar or Gel)'
 ];
 
+var hikeArray = ['Hiking Shoes/Boots', '1 Pair of Socks', '1 Pair of Underwear', '1 Shirt/Long­sleeve Shirt', '1 Pair of Shorts/Pants', '30-­40 Liter Backpack', 'Water Bottles'];
+
+
 var activityArray = [new Activity('Hiking', 'bwHiking.png'), new Activity('Mountaineering', 'bwMountaineering.png'), new Activity('Backcountry Snowboarding', 'bwSnowboard.png'), new Activity('Backcountry Skiing', 'bwSki.png'), new Activity('Car Camping', 'bwCarCamping.png')];
 
 // ACTIVITY CONSTRUCTOR
@@ -48,5 +51,18 @@ icons();
 iconHike.addEventListener('click', handleHike);
 
 function handleHike() {
-  alert('fill hike info')
+  for (var i = 0; i < hikeArray.length; i++) {
+    essentials.push(hikeArray[i]);
+  }
+  console.log(essentials);
+  var finalList = document.getElementById('finalList');
+  var loadList = document.getElementById('loadList');
+
+  for (var j = 0; j < essentials.length; j++) {
+    var listArray = document.createElement('li');
+    listArray.textContent = essentials[j];
+    loadList.appendChild(listArray);
+  }
+  finalList.appendChild(loadList);
+
 }
