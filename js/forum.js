@@ -2,6 +2,7 @@
 
 var pastLists = document.getElementById('past-lists'); //DOM ids
 var saveButton = document.getElementById('save-past-list');
+var commentData = [];
 
 function TripLog(where, details, extra) { //generates info for triplog
   this.where = where;
@@ -10,6 +11,14 @@ function TripLog(where, details, extra) { //generates info for triplog
   console.log(this.where);
   console.log(this.details);
   console.log(this.extra);
+  commentData.push(this);
+  this.renderJournal();
+}
+
+TripLog.prototype.renderJournal = function() {
+  var journalEl = document.getElementById('journalEntries');
+  journalEl.innerHTML = '<li>Destination: ' + this.where + '</li><li>Comments: ' + this.details + '</li><li>Whish I\'d brought: ' + this.extra + '</li>';
+  return journalEl;
 }
 
 var handleSaveClick = function(event) {
