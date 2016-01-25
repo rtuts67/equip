@@ -1,1 +1,7 @@
 /*this is where our css will go*/
+
+#activities {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
