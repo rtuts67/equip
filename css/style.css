@@ -21,7 +21,7 @@ nav {
   align-content: center;
   background-color: none;
   padding: 0px 10px 10px 10px;
-  margin: 10px 10px -25px 10px;
+  margin: 10px 10px 0px 10px;
 }
 
 nav ul {
@@ -86,7 +86,7 @@ div#slider figure img {
 div#slider figure {
   position: relative;
   width: 500%;
-  margin: -300px 0px 0px 0px;
+  margin: -50px 0px 0px 0px;
   left: 0;
   text-align: left;
   font-size: 0;
@@ -153,6 +153,11 @@ div#slider figure {
   padding: 0px 10px 0px 20px;
 }
 
+#holyBios {
+  display: flex;
+  flex-direction: row;
+}
+
 #biographies {
   display: flex;
   justify-content: center;
@@ -175,7 +180,8 @@ div#slider figure {
 }
 
 #biopic {
-  width: 100%;
+width: 250px;
+height: 250px;
 }
 
 #bioborder {
