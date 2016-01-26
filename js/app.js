@@ -125,7 +125,7 @@ function handleIcon(icon) {
   for (var i = 0; i < icon.length; i++) {
     essentials.push(icon[i]);
   }
-  console.log(essentials);
+  // console.log(essentials);
 };
 
 // WEATHER EVENT LISTENERS
@@ -164,7 +164,7 @@ function handleIcon2(icon) {
   for (var i = 0; i < icon.length; i++) {
     essentials.push(icon[i]);
   }
-  console.log(essentials);
+  // console.log(essentials);
 };
 
 // DURATION EVENT LISTENERS
@@ -200,17 +200,62 @@ function handleIcon3(icon) {
       finalArray.push(e);
     }
   })
-  console.log(finalArray);
+  // console.log(finalArray);
 };
-// CREATE BUTTON
-results.addEventListener('click', handleButton)
-function handleButton() {
-  var finalList = document.getElementById('finalList');
-  var loadList = document.getElementById('loadList');
-  for (var j = 0; j < finalArray.length; j++) {
-    var listArray = document.createElement('li');
-    listArray.textContent = finalArray[j];
-    loadList.appendChild(listArray);
+
+// ADD LS
+var listEl = document.getElementById('tripName');
+//var chartData = localStorage.getItem();
+function getLocalStorage() {
+  if (chartData) {
+    finalArray = [];
+    finalArray = JSON.parse(chartData);
+  } else {
+    console.log('Local storage empty!! Initializing!');
+    localStorage.setItem(listName, JSON.stringify(finalArray));
   }
-  finalList.appendChild(loadList);
+}
+
+var allTripsArray = [];
+function Trip(tripName, tripList) {
+  this.name = tripName;
+  this.list = tripList;
+  this.destination = '';
+  this.details = '';
+  this.wish = '';
+  allTripsArray.push(this);
+}
+
+
+// CREATE LIST BUTTON
+results.addEventListener('click', handleButton);
+function handleButton(e) {
+  if (!listEl.value) {
+    return;
+  } else {
+    e.preventDefault();
+    var finalList = document.getElementById('finalList');
+    var loadList = document.getElementById('loadList');
+    var listName = listEl.value;
+    var newTrip = new Trip(listName, finalArray);
+    var nameEl = document.getElementById('nameEl');
+    nameEl.textContent = listName;
+    for (var j = 0; j < finalArray.length; j++) {
+      var listArray = document.createElement('li');
+      listArray.textContent = finalArray[j];
+      loadList.appendChild(listArray);
+    }
+    finalList.appendChild(loadList);
+    localStorage.setItem(listName, JSON.stringify(finalArray));
+    //getLocalStorage()
+    // finalArray = [];
+  }
 };
+
+// CLEAR LS BUTTON AND RESTART PAGE
+var clearLS = document.getElementById('lsClear');
+var handleLSClear = function() {
+  console.log('clearing Local Storage');
+  localStorage.clear();
+};
+clearLS.addEventListener('click', handleLSClear);
