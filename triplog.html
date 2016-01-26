@@ -3,6 +3,7 @@
   <head>
     <title>Trip Log</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forum.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -15,24 +16,39 @@
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
-    <form id="past-lists" class="">
-      <fieldset>
-        <legend>Past Outdoor Activities Journal</legend>
+    <section class="formContainer">
+      <form id="past-lists">
+        <fieldset>
+          <legend>Past Outdoor Activities Journal</legend>
 
-        <label for="whereTo">Where did you go?</label>
-        <input name="whereTo" type="text"><br>
+          <div class="formLabel">
+            <label for="whereTo">Where did you go?</label>
+          </div>
+          <div class="formField">
+            <input name="whereTo" type="text" size="75"><br>
+          </div>
 
-        <label for="detail">Trip details:</label>
-        <textarea name="detail" cols="50" rows="4"></textarea><br>
+          <div class="formLabel">
+            <label for="detail">Trip details:</label>
+          </div>
+          <div class="formField">
+            <textarea name="detail" cols="100" rows="6"></textarea><br>
+          </div>
 
-        <label for="extras">Stuff I wish I brought?</label>
-        <input name="extras" type="text" size="50"><br>
+          <div class="formLabel">
+            <label for="extras">Stuff I wish I brought?</label>
+          </div>
+          <div class="formField">
+            <input name="extras" type="text" size="75"><br>
+          </div>
 
-        <button id="save-past-list">Save Trip Log</button><br>
-      </fieldset>
-    </form>
-    <br>
-    <button id="delete">Clear all Lists?</button>
+          <div class="buttons">
+            <button id="save-past-list">Save Trip Log</button>
+            <button id="delete">Clear all Journal Entries?</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
 
     <ul id="journalEntries"></ul>
     <script src="js/forum.js"></script>

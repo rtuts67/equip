@@ -1,0 +1,53 @@
+.journalSection {
+  display: flex;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  background-color: #efffd8;
+  margin-bottom: 12px;
+}
+
+#past-lists {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+legend {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.formLabel {
+  width: 160px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.formField {
+  display: flex;
+  width: 465px;
+  margin-bottom: 18px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#save-past-list {
+  border-left: 0px;
+  margin-bottom: 12px;
+}
+
+#delete {
+  border-left: 0px;
+  margin-bottom: 6px;
+}
+
+li {
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
