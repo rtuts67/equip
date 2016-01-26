@@ -34,22 +34,6 @@ function Equip(names, src) {
   fullArray.push(this);
 };
 
-
-
-
-// // WEATHER CONSTRUCTOR
-// function Weather(names, src) {
-//   this.names = names;
-//   this.src = 'img/icons/' + src;
-//   fullArray.push(this);
-// };
-// // DURATION CONSTRUCTOR
-// function Duration(names, src) {
-//   this.names = names;
-//   this.src = 'img/icons/' + src;
-//   fullArray.push(this);
-// };
-
 // CREATE ACTIVITY ICONS
 function icons() {
   // HIKING
