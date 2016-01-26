@@ -17,35 +17,63 @@
       </ul>
     </nav>
 
-    <section id="activities">
-      <img class="icons" id="hiking" />
-      <img class="icons" id="mountaineering" />
-      <img class="icons" id="backcountrySnowboarding" />
-      <img class="icons" id="backcountrySkiing" />
-      <img class="icons" id="carCamping" />
-    </section>
+    <form action="equip.html" method="post">
+      <section id="tripNames">
+        <input id="tripName" type="text" id="n1" name="tripLogName" required="required" >
+      </section>
 
-    <section id="weather">
-      <img class="icons" id="sunny"/>
-      <img class="icons" id="rainy"/>
-      <img class="icons" id="cloudy"/>
-      <img class="icons" id="snowy"/>
-    </section>
+      <section id="activities">
+        <img class="icons" id="hiking" />
+        <img class="icons" id="mountaineering" />
+        <img class="icons" id="backcountrySnowboarding" />
+        <img class="icons" id="backcountrySkiing" />
+        <img class="icons" id="carCamping" />
+      </section>
 
-    <section id="duration">
-      <img class="icons" id="lessThanOne"/>
-      <img class="icons" id="twoThree"/>
-      <img class="icons" id="threePlus"/>
-    </section>
+      <section id="weather">
+        <img class="icons" id="sunny"/>
+        <img class="icons" id="rainy"/>
+        <img class="icons" id="cloudy"/>
+        <img class="icons" id="snowy"/>
+      </section>
 
-    <section id="button">
-      <button id="results" type="button" name="button">EQUIP ME</button>
-    </section>
+      <section id="duration">
+        <img class="icons" id="lessThanOne"/>
+        <img class="icons" id="twoThree"/>
+        <img class="icons" id="threePlus"/>
+      </section>
 
-    <section id="finalList">
-      <ul id="loadList"></ul>
-    </section>
+      <h2></h2>
+
+      <section id="buttonList">
+
+        <article>
+          <button class="buttons" id="clearList">CLEAR CURRENT LIST</button>
+        </article>
+
+        <article>
+            <button class="buttons" id="makeList" name="button">MAKE LIST</button>
+        </article>
+
+        <article>
+          <h3 id="nameEl"></h3>
+          <button class="buttons" id="results" type="submit" name="button">SAVE LIST</button>
+        </article>
+
+        <article>
+          <a href="javascript:location.reload(true)"><button class="buttons" id="lsClear" type="button" name="button">RESET ALL LISTS</button></a>
+        </article>
+      </section>
+
+      <section id="finalList">
+        <ul type="checkbox" id="loadList"></ul>
+      </section>
+
+
+    </form>
+
 
     <script type="text/javascript" src="js/app.js"></script>
+    <!-- <script type="text/javascript" src="js/forum.js"></script> -->
   </body>
 </html>
