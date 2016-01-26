@@ -1,4 +1,75 @@
 /*this is where our css will go*/
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 0px 0px;
+}
+
+#headerLogo {
+  display: flex;
+  align-self: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  background-color: none;
+}
+
+nav ul li {
+  display: flex;
+  list-style: none;
+  background-color: none;
+  margin: 0px 50px 0px 10px;
+  padding: 10px 10px 15px 10px;
+}
+
+nav ul li a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: black;
+  background-color: none;
+}
+
+#homepagecontent {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#missionStatementSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  border: 1px dashed #C9CCC9;
+}
+
+#missionStatementHeader {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px 10px 0px 20px;
+}
+
+#missionStatement {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px 10px 10px 20px;
+}
+
 
 #activities, #weather, #duration {
   display: flex;
@@ -6,9 +77,10 @@
   flex-direction: row;
 }
 
-
-
-
+.icons {
+    padding: 20px 30px 20px 30px;
+    
+}
 
 #button {
   display: flex;
