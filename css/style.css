@@ -6,7 +6,8 @@ body {
 header {
   display: flex;
   justify-content: center;
-  padding: 10px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
+  margin: -15px;
 }
 
 #headerLogo {
@@ -17,13 +18,15 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-content: center;
   background-color: none;
+  padding: 0px 10px 10px 10px;
+  margin: 10px 10px -25px 10px;
 }
 
 nav ul {
   display: flex;
-  justify-content: space-between;
+  align-self: center;
   font-family: 'Montserrat', sans-serif;
   background-color: none;
 }
@@ -32,8 +35,8 @@ nav ul li {
   display: flex;
   list-style: none;
   background-color: none;
-  margin: 0px 50px 0px 10px;
-  padding: 10px 10px 15px 10px;
+  margin: 10px 0px 10px 0px;
+  padding: 0px 10px 0px 10px;
 }
 
 nav ul li a {
@@ -44,31 +47,50 @@ nav ul li a {
   background-color: none;
 }
 
-#homepagecontent {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 0px 20px 0px 20px;
+
+/*SLIDER*/
+
+@keyframes slidy {
+0%  { left: 0%; }
+5%  { left: 0%; }
+10% { left: 0%; }
+15% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+30% { left: -100%; }
+35% { left: -100%; }
+40% { left: -100%; }
+45% { left: -200%; }
+50% { left: -200%; }
+55% { left: -200%; }
+60% { left: -200%; }
+65% { left: -300%; }
+70% { left: -300%; }
+75% { left: -300%; }
+80% { left: -300%; }
+85% { left: -400%; }
+90% { left: -400%; }
+95% { left: -400%; }
+100% { left: -400%; }
 }
 
-#missionStatementSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 100%;
-  border: 1px dashed #C9CCC9;
+div#slider {
+  overflow: hidden;
 }
 
-#missionStatementHeader {
-  display: flex;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0px 10px 0px 20px;
+div#slider figure img {
+  width: 20%;
+  float: left;
 }
 
-#missionStatement {
-  display: flex;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0px 10px 10px 20px;
+div#slider figure {
+  position: relative;
+  width: 500%;
+  margin: -300px 0px 0px 0px;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite;
 }
 
 /*EQUIP PAGE*/
@@ -103,17 +125,44 @@ nav ul li a {
 
 /*ABOUT PAGE*/
 
+#homepagecontent {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0px 20px 20px 20px;
+}
+
+#missionStatementSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border: 1px dashed #C9CCC9;
+  padding: 0px 0px 20px 0px;
+}
+
+#missionStatementHeader {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px 20px 0px 20px;
+}
+
+#missionStatement {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px 10px 0px 20px;
+}
+
 #biographies {
   display: flex;
   justify-content: center;
-  flex-shrink: 2;
   margin: 0px 20px 20px 20px;
 }
 
 #aboutSection {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
@@ -132,11 +181,10 @@ nav ul li a {
 #bioborder {
   border: 1px dashed #C9CCC9;
   width: 100%;
-  min-width: 600px;
 }
 
 #bioname {
-  padding: 0px 20px 0px 20px;
+  padding: 10px 20px 0px 20px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
