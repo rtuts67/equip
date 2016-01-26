@@ -79,7 +79,7 @@ nav ul li a {
 
 .icons {
     padding: 20px 30px 20px 30px;
-    
+
 }
 
 #button {
@@ -96,3 +96,15 @@ nav ul li a {
   transition-duration: 0.5s;
   background-color: black;
   color: #CACDCE;
+}
+
+#finalList {
+  display: flex;
+  justify-content: center;
+}
+
+#tripNames {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 20px 20px;
+}

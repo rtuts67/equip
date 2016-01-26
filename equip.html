@@ -17,35 +17,48 @@
       </ul>
     </nav>
 
-    <section id="activities">
-      <img class="icons" id="hiking" />
-      <img class="icons" id="mountaineering" />
-      <img class="icons" id="backcountrySnowboarding" />
-      <img class="icons" id="backcountrySkiing" />
-      <img class="icons" id="carCamping" />
-    </section>
+    <form action="equip.html" method="post">
+      <section id="tripNames">
+        <input id="tripName" type="text" id="n1" name="tripLogName" required="required" >
+      </section>
 
-    <section id="weather">
-      <img class="icons" id="sunny"/>
-      <img class="icons" id="rainy"/>
-      <img class="icons" id="cloudy"/>
-      <img class="icons" id="snowy"/>
-    </section>
 
-    <section id="duration">
-      <img class="icons" id="lessThanOne"/>
-      <img class="icons" id="twoThree"/>
-      <img class="icons" id="threePlus"/>
-    </section>
+      <section id="activities">
+        <img class="icons" id="hiking" />
+        <img class="icons" id="mountaineering" />
+        <img class="icons" id="backcountrySnowboarding" />
+        <img class="icons" id="backcountrySkiing" />
+        <img class="icons" id="carCamping" />
+      </section>
 
-    <section id="button">
-      <button id="results" type="button" name="button">EQUIP ME</button>
-    </section>
+      <section id="weather">
+        <img class="icons" id="sunny"/>
+        <img class="icons" id="rainy"/>
+        <img class="icons" id="cloudy"/>
+        <img class="icons" id="snowy"/>
+      </section>
 
-    <section id="finalList">
-      <ul id="loadList"></ul>
-    </section>
+      <section id="duration">
+        <img class="icons" id="lessThanOne"/>
+        <img class="icons" id="twoThree"/>
+        <img class="icons" id="threePlus"/>
+      </section>
+
+      <section id="button">
+        <p id="nameEl"></p>
+        <button id="results" type="submit" name="button">EQUIP ME</button>
+      </section>
+
+      <section id="finalList">
+        <ul type="checkbox" id="loadList"></ul>
+      </section>
+
+      <section id="button">
+        <a href="javascript:location.reload(true)"><button id="lsClear">Clear List Storage</button></a>
+      </section>
+    </form>
 
     <script type="text/javascript" src="js/app.js"></script>
+    <!-- <script type="text/javascript" src="js/forum.js"></script> -->
   </body>
 </html>
