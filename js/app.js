@@ -1,10 +1,11 @@
-
+'use strict';
 // FINAL ARRAY
 var fullArray = [];
+
 // DECLARING VARIABLES
 var iconHike, iconMount, iconSnowboard, iconSki, iconCamp, iconSunny, iconRainy, iconCloudy, iconSnowy, iconOne, iconTwo, iconThree, essentials;
 
-//
+// ITEMS ARRAY
 var activityItems = [
   ['Hiking Shoes/Boots', '1 Pair of Socks', '1 Pair of Underwear', '1 Shirt/Long­sleeve Shirt', '1 Pair of Shorts/Pants', '30-­40 Liter Backpack', 'Water Bottles', 'Swimsuit (if hiking to a lake)'],
   ['Mountaineering Boots', 'Crampons', 'Ice Axe or Ice Tools', 'Helmet', 'Dry­treated Single Rope (30­-60 meters) (if protecting any pitches or roping up for glacier travel)', 'Harness', 'Pickets', 'Crevasse Rescue Kit (if crossing a glacier)', 'Light Alpine Climbing Rack (if climbing any rock)', 'Gaiters', 'Glacier Sunglasses or Goggles', 'GPS (recommended)', 'Emergency Locator Beacon (recommended)'],
@@ -19,31 +20,35 @@ var activityItems = [
   ['Sleeping Pad', 'Sleeping Bag', 'Pillow', 'Toiletries', 'Tent/Shelter', 'Stove/Pot', 'Fuel', 'Extra Batteries', 'Water Treatment (filter and/or chemical treatment)', 'Food Storage (bear canister or hanging system)', 'Camp Shoes']
 ];
 
-//
-var bwArray = [new Activity('Hiking', 'bwHiking.png'), new Activity('Mountaineering', 'bwMountaineering.png'), new Activity('Backcountry Snowboarding', 'bwSnowboard.png'), new Activity('Backcountry Skiing', 'bwSki.png'), new Activity('Car Camping', 'bwCarCamping.png'), new Weather('Sunny', 'bwSunny.png'),
-new Weather('Rainy', 'bwRainy.png'), new Weather('Cloudy', 'bwCloudy.png'), new Weather('Snowy', 'bwSnow.png'), new Duration('1 Day', 'bwLessThan1.png'), new Duration('2-3 Days', 'bw2-3.png'), new Duration('3+ Days', 'bw3Plus.png')];
 
-var colorArray = [new Activity('Hiking', 'hiking.png'), new Activity('Mountaineering', 'mountaineering.png'), new Activity('Backcountry Snowboarding', 'snowboard.png'), new Activity('Backcountry Skiing', 'ski.png'), new Activity('Car Camping', 'carCamping.png'), new Weather('Sunny', 'sunny.png'),
-new Weather('Rainy', 'rainy.png'), new Weather('Cloudy', 'cloudy.png'), new Weather('Snowy', 'snow.png'), new Duration('1 Day', 'lessThan1.png'), new Duration('2-3 Days', '2-3.png'), new Duration('3+ Days', '3Plus.png')]
+var bwArray = [new Equip('Hiking', 'bwHiking.png'), new Equip('Mountaineering', 'bwMountaineering.png'), new Equip('Backcountry Snowboarding', 'bwSnowboard.png'), new Equip('Backcountry Skiing', 'bwSki.png'), new Equip('Car Camping', 'bwCarCamping.png'), new Equip('Sunny', 'bwSunny.png'),
+new Equip('Rainy', 'bwRainy.png'), new Equip('Cloudy', 'bwCloudy.png'), new Equip('Snowy', 'bwSnow.png'), new Equip('1 Day', 'bwLessThan1.png'), new Equip('2-3 Days', 'bw2-3.png'), new Equip('3+ Days', 'bw3Plus.png')];
+
+var colorArray = [new Equip('Hiking', 'hiking.png'), new Equip('Mountaineering', 'mountaineering.png'), new Equip('Backcountry Snowboarding', 'snowboard.png'), new Equip('Backcountry Skiing', 'ski.png'), new Equip('Car Camping', 'carCamping.png'), new Equip('Sunny', 'sunny.png'),
+new Equip('Rainy', 'rainy.png'), new Equip('Cloudy', 'cloudy.png'), new Equip('Snowy', 'snow.png'), new Equip('1 Day', 'lessThan1.png'), new Equip('2-3 Days', '2-3.png'), new Equip('3+ Days', '3Plus.png')]
 
 // ACTIVITY CONSTRUCTOR
-function Activity(names, src) {
+function Equip(names, src) {
   this.names = names;
   this.src = 'img/icons/' + src;
   fullArray.push(this);
 };
-// WEATHER CONSTRUCTOR
-function Weather(names, src) {
-  this.names = names;
-  this.src = 'img/icons/' + src;
-  fullArray.push(this);
-};
-// DURATION CONSTRUCTOR
-function Duration(names, src) {
-  this.names = names;
-  this.src = 'img/icons/' + src;
-  fullArray.push(this);
-};
+
+
+
+
+// // WEATHER CONSTRUCTOR
+// function Weather(names, src) {
+//   this.names = names;
+//   this.src = 'img/icons/' + src;
+//   fullArray.push(this);
+// };
+// // DURATION CONSTRUCTOR
+// function Duration(names, src) {
+//   this.names = names;
+//   this.src = 'img/icons/' + src;
+//   fullArray.push(this);
+// };
 
 // CREATE ACTIVITY ICONS
 function icons() {
@@ -136,6 +141,7 @@ function handleIcon(icon) {
   for (var i = 0; i < icon.length; i++) {
     essentials.push(icon[i]);
   }
+  console.log(essentials);
 };
 
 // WEATHER EVENT LISTENERS
@@ -174,6 +180,7 @@ function handleIcon2(icon) {
   for (var i = 0; i < icon.length; i++) {
     essentials.push(icon[i]);
   }
+  console.log(essentials);
 };
 
 // DURATION EVENT LISTENERS
@@ -209,6 +216,7 @@ function handleIcon3(icon) {
       finalArray.push(e);
     }
   })
+  console.log(finalArray);
 };
 // CREATE BUTTON
 results.addEventListener('click', handleButton)

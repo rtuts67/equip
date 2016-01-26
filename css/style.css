@@ -1,6 +1,6 @@
 /*this is where our css will go*/
 
-#activities, #weather, #duration {
+#activities, #weather, #duration, #titleLog, #titleName {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -24,3 +24,4 @@
   transition-duration: 0.5s;
   background-color: black;
   color: #CACDCE;
+}
