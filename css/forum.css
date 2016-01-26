@@ -1,0 +1,15 @@
+.journalSection {
+  display: flex;
+}
+
+#past-lists {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+li {
+  display: flex;
+  list-style: none;
+  font-family: Verdana;
+  font-size: 12px;
+}
