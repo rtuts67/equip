@@ -82,17 +82,24 @@ nav ul li a {
 
 }
 
-#button {
+#buttonList {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#buttons {
   display: flex;
   justify-content: center;
   padding: 20px 20px 20px 20px;
 }
-#results {
+
+.buttons {
   border-radius: 15px;
   font-size: 16px;
   text-align: center;
 }
-#results:hover {
+.buttons:hover {
   transition-duration: 0.5s;
   background-color: black;
   color: #CACDCE;
