@@ -4,6 +4,9 @@ var fullArray = [];
 
 // DECLARING VARIABLES
 var iconHike, iconMount, iconSnowboard, iconSki, iconCamp, iconSunny, iconRainy, iconCloudy, iconSnowy, iconOne, iconTwo, iconThree, essentials;
+var active = document.getElementById('activities');
+var weath = document.getElementById('weather');
+var dur = document.getElementById('duration');
 
 // ITEMS ARRAY
 var activityItems = [
@@ -164,7 +167,6 @@ function handleIcon2(icon) {
   for (var i = 0; i < icon.length; i++) {
     essentials.push(icon[i]);
   }
-  // console.log(essentials);
 };
 
 // DURATION EVENT LISTENERS
@@ -200,7 +202,6 @@ function handleIcon3(icon) {
       finalArray.push(e);
     }
   })
-  // console.log(finalArray);
 };
 
 // ADD LS
@@ -216,16 +217,11 @@ function getLocalStorage() {
   }
 }
 
-var allTripsArray = [];
-function Trip(tripName, tripList) {
-  this.name = tripName;
-  this.list = tripList;
-  this.destination = '';
-  this.details = '';
-  this.wish = '';
-  allTripsArray.push(this);
-}
+var makeList = document.getElementById('makeList');
+makeList.addEventListener('click', handleMakeList);
+function handleMakeList() {
 
+}
 
 // CREATE LIST BUTTON
 results.addEventListener('click', handleButton);
@@ -237,20 +233,30 @@ function handleButton(e) {
     var finalList = document.getElementById('finalList');
     var loadList = document.getElementById('loadList');
     var listName = listEl.value;
-    var newTrip = new Trip(listName, finalArray);
+    // var newTrip = new Trip(listName, finalArray);
     var nameEl = document.getElementById('nameEl');
-    nameEl.textContent = listName;
     for (var j = 0; j < finalArray.length; j++) {
+      nameEl.textContent = listName;
       var listArray = document.createElement('li');
       listArray.textContent = finalArray[j];
       loadList.appendChild(listArray);
     }
     finalList.appendChild(loadList);
     localStorage.setItem(listName, JSON.stringify(finalArray));
-    //getLocalStorage()
-    // finalArray = [];
   }
+  tripName.style.display = 'none';
+  active.style.display = 'none';
+  weath.style.display = 'none';
+  dur.style.display = 'none';
+  results.style.display = 'none';
 };
+
+// CLEAR LIST BUTTON
+clearList.addEventListener('click', handleClearList);
+function handleClearList() {
+  lsClear.style.display = 'block';
+  location.reload(false);
+}
 
 // CLEAR LS BUTTON AND RESTART PAGE
 var clearLS = document.getElementById('lsClear');
