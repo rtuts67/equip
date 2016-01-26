@@ -1,6 +1,6 @@
 /*this is where our css will go*/
 
-#activities {
+#activities, #weather, #duration {
   display: flex;
   justify-content: center;
   flex-direction: row;
