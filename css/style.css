@@ -48,6 +48,7 @@ nav ul li a {
   display: flex;
   justify-content: center;
   align-content: center;
+  padding: 0px 20px 0px 20px;
 }
 
 #missionStatementSection {
@@ -70,6 +71,7 @@ nav ul li a {
   padding: 0px 10px 10px 20px;
 }
 
+/*EQUIP PAGE*/
 
 #activities, #weather, #duration {
   display: flex;
@@ -82,20 +84,64 @@ nav ul li a {
     cursor: pointer;
 }
 
-
-
 #button {
   display: flex;
   justify-content: center;
   padding: 20px 20px 20px 20px;
 }
+
 #results {
   font-family: 'Montserrat', sans-serif;
   border-radius: 15px;
   font-size: 16px;
   text-align: center;
 }
+
 #results:hover {
   cursor: pointer;
-  background-color: black;
-  color: #CACDCE;
+}
+
+/*ABOUT PAGE*/
+
+#biographies {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 2;
+  margin: 0px 20px 20px 20px;
+}
+
+#aboutSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#bios {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 0px 20px 0px;
+  width: 100%;
+  height: auto;
+}
+
+#biopic {
+  width: 100%;
+}
+
+#bioborder {
+  border: 1px dashed #C9CCC9;
+  width: 100%;
+  min-width: 600px;
+}
+
+#bioname {
+  padding: 0px 20px 0px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+#biotext {
+  padding: 5px 20px 20px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
