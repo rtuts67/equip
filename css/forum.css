@@ -5,48 +5,43 @@
 .formContainer {
   display: flex;
   justify-content: center;
-  background-color: #efffd8;
+  background-color: none;
   margin-bottom: 12px;
 }
 
 #past-lists {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+
 }
 
 legend {
+  display: flex;
   font-size: 18px;
   margin-bottom: 7px;
+  background-color: none;
 }
 
 .formLabel {
-  width: 160px;
+  width: 300px;
   margin-top: 8px;
   margin-bottom: 5px;
+  background-color: none;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .formField {
   display: flex;
-  width: 465px;
+  width: 460px;
+  background-color: none;
   margin-bottom: 18px;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
+label {
+  font-family: 'Montserrat', sans-serif;
 }
 
-#save-past-list {
-  border-left: 0px;
-  margin-bottom: 12px;
-}
-
-#delete {
-  border-left: 0px;
-  margin-bottom: 6px;
-}
-
-li {
+#journalEntries {
   list-style: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
