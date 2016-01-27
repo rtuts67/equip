@@ -95,6 +95,15 @@ div#slider figure {
 
 /*EQUIP PAGE*/
 
+#tripNames {
+  display: flex;
+  justify-content: center;
+}
+
+#tripName {
+  display: flex;
+}
+
 #activities, #weather, #duration {
   display: flex;
   justify-content: center;
@@ -104,6 +113,18 @@ div#slider figure {
 .icons {
     padding: 20px 30px 20px 30px;
     cursor: pointer;
+}
+
+#finalList {
+  display: flex;
+  justify-content: center;
+}
+
+#loadList {
+  display: flex;
+  /*text-decoration: none;*/
+  flex-direction: column;
+  list-style: square;
 }
 
 #buttonList {
@@ -130,6 +151,22 @@ div#slider figure {
 
 #results:hover {
   cursor: pointer;
+}
+
+#buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cButton {
+  display: flex;
+  padding: 0px 5px 0px 5px;
+}
+
+.sButton {
+  display: flex;
+  padding: 0px 5px 0px 5px;
 }
 
 /*ABOUT PAGE*/
@@ -220,13 +257,6 @@ height: 250px;
   display: flex;
   justify-content: center;
 }
-
-#tripNames {
-  display: flex;
-  justify-content: center;
-  padding: 20px 20px 20px 20px;
-}
-
 
 /*FORUM*/
 
