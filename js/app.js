@@ -217,13 +217,16 @@ function getLocalStorage() {
   }
 }
 
-var makeList = document.getElementById('makeList');
-makeList.addEventListener('click', handleMakeList);
-function handleMakeList() {
 
+// var trips = new Trip();
+function Trip(tripName, tripList) {
+  this.name = tripName;
+  this.list = tripList;
 }
 
+
 // CREATE LIST BUTTON
+var totalTrips = [];
 results.addEventListener('click', handleButton);
 function handleButton(e) {
   if (!listEl.value) {
@@ -233,7 +236,6 @@ function handleButton(e) {
     var finalList = document.getElementById('finalList');
     var loadList = document.getElementById('loadList');
     var listName = listEl.value;
-    // var newTrip = new Trip(listName, finalArray);
     var nameEl = document.getElementById('nameEl');
     for (var j = 0; j < finalArray.length; j++) {
       nameEl.textContent = listName;
@@ -241,8 +243,18 @@ function handleButton(e) {
       listArray.textContent = finalArray[j];
       loadList.appendChild(listArray);
     }
+    var newTrip = new Trip(listName, finalArray);
     finalList.appendChild(loadList);
-    localStorage.setItem(listName, JSON.stringify(finalArray));
+    totalTrips.push(newTrip);
+    console.log(totalTrips);
+
+    var b = JSON.stringify(totalTrips);
+    localStorage.setItem('totalTrips', b);
+
+    // get item "tripList"
+    // if trip list doesnt exist make an empty ARRAY
+    // add newtrip to triplist array
+    // store triplist back in "tripList"
   }
   tripName.style.display = 'none';
   active.style.display = 'none';
@@ -250,6 +262,17 @@ function handleButton(e) {
   dur.style.display = 'none';
   results.style.display = 'none';
 };
+
+function checkLS() {
+  if (localStorage.totalTrips) {
+    var z = localStorage.getItem('totalTrips');
+    var a = JSON.parse(z);
+    console.log(a);
+    totalTrips = a;
+  }
+};
+checkLS();
+
 
 // CLEAR LIST BUTTON
 clearList.addEventListener('click', handleClearList);
