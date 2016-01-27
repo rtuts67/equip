@@ -1,60 +1,73 @@
 'use strict'
-var allTrips = [];
-var listForms = [];
+
+var allTripsArray = [];
+var placeArray = [];
+var detailsArray = [];
+var extraStuffArray = [];
+
 var pastLists = document.getElementById('past-lists'); //DOM ids
 var submit = document.getElementById('submit');
 var saveButton = document.getElementById('save-past-list');
 var deleted = document.getElementById('delete');
 var equipList = document.getElementById('showEquipList');
 var ulEquipList = document.getElementById('ulEquipList');
-var tripType = localStorage.getItem('totalTrips');
 
-function CreateAllInfo(place, details, extraStuff) {
-  this.place = place;
-  this.details = details;
-  this.extraStuff = extraStuff;
-  listForms.push(this);
+var savedTripType = localStorage.getItem('totalTrips');
+var savedPlace = localStorage.getItem('placePersist');
+var savedDetails = localStorage.getItem('detailsPersist');
+var savedExtraStuff = localStorage.getItem('extraStuffPersist');
+
+
+if (savedPlace) {
+  placeArray = JSON.parse(savedPlace);
+  detailsArray = JSON.parse(savedDetails)
+  extraStuffArray = JSON.parse(savedExtraStuff);
+} else {
+  console.log('storage is empty for these arrays, initializing!');
+  // localStorage.setItem('placePersist', JSON.stringify(placeArray));
+  // localStorage.setItem('detailsPersist', JSON.stringify(detailsArray));
+  // localStorage.setItem('extraStuffPersist', JSON.stringify(extraStuffArray));
 }
-
-if (allTrips < 1) {
-  allTrips = JSON.parse(tripType);
-  console.log(allTrips);
+if (savedTripType) { //test localStorage
+  allTripsArray = JSON.parse(savedTripType);
+  console.log(allTripsArray);
 } else {
   alert('You have no saved lists. Click on the Equip tab to get started!')
 }
-CreateAllInfo.prototype.renderJournal = function() {
+function renderJournal() {
   event.preventDefault();
-  var where2 = event.target.whereTo.value; //form data
-  var details2 = event.target.detail.value;
-  var extra2 = event.target.extras.value;
+  var where = event.target.whereTo.value; //form data
+  var details = event.target.detail.value;
+  var extra = event.target.extras.value;
+  placeArray.push(where);
+  detailsArray.push(details);
+  extraStuffArray.push(extra);
 
-  // var allTrips
   event.target.whereTo.value = null; //clear forms
   event.target.detail.value = null;
   event.target.extras.value= null;
-  localStorage.setItem('placePersist', JSON.stringify(place));
-  localStorage.setItem('detailsPersist', JSON.stringify(tripDetails));
-  localStorage.setItem('extraPersist', JSON.stringify(extraStuff));
-  makePastLists();
+  localStorage.setItem('placePersist', JSON.stringify(placeArray));
+  localStorage.setItem('detailsPersist', JSON.stringify(detailsArray));
+  localStorage.setItem('extraStuffPersist', JSON.stringify(extraStuffArray));
 }
 function addInput() {
   var dropdown = document.getElementById('dropdown');
-  for(var i = 0; i < allTrips.length; i ++) {
+  for(var i = 0; i < allTripsArray.length; i ++) {
     var el = document.createElement("option");
-    el.textContent = allTrips[i].name;
+    el.textContent = allTripsArray[i].name;
     el.value = i;
     dropdown.appendChild(el);
   }
 }
 addInput();
 
-// var makePastLists = function() {
-//   for (var i = 0; i < allTrips.length; i++) {
-//     var journalEl = document.createElement('li');
-//     journalEl.innerHTML = '<ul><li>Destination: ' + place[i] + '</li><li>Comments: ' + tripDetails[i] + '</li><li>Whish I\'d brought: ' + extraStuff[i] + '</li></ul><br>';
-//     journalEntries.appendChild(journalEl);
-//   }
-// }
+var makePastLists = function() {
+  var dropDownValue = document.getElementById('dropdown').value;
+  var journalEl = document.createElement('li');
+  journalEl.innerHTML = '<ul><li>Destination: ' + placeArray[dropDownValue] + '</li><li>Comments: ' + detailsArray[dropDownValue] + '</li><li>Whish I\'d brought: ' + extraStuffArray[dropDownValue] + '</li></ul><br>';
+  journalEntries.appendChild(journalEl);
+}
+
 var testDropValue = function() {
   var dropDownValue = document.getElementById('dropdown').value;
   // var emptyList = [];
@@ -62,8 +75,8 @@ var testDropValue = function() {
     alert('There is nothing to submit! Head to the Equip tab to get a list started');
   } else {
     var emptyList = [];
-    for (var i = 0; i < allTrips[dropDownValue].list.length; i++) {
-      emptyList.push(allTrips[dropDownValue].list[i]);
+    for (var i = 0; i < allTripsArray[dropDownValue].list.length; i++) {
+      emptyList.push(allTripsArray[dropDownValue].list[i]);
       var equipEl = document.createElement('li');
       equipEl.textContent = emptyList[i];
       equipList.appendChild(equipEl);
@@ -72,33 +85,28 @@ var testDropValue = function() {
   }
 }
 
-submit.addEventListener('click', handleSubmitClick);
-var handleSubmitClick = function(event) {
-  testDropValue();
-  pastLists.removeAttribute('hidden');
+var hasInfo = function() {
+  var dropDownValue = document.getElementById('dropdown').value;
+  if (placeArray[dropDownValue]) {
+      makePastLists();
+  } else {
+    pastLists.removeAttribute('hidden');
+    // Form will appear to add trip details
+  }
 }
 
-// if (place.length > 0) { //local storage
-//   place = JSON.parse(savePlace);
-//   extraStuff = JSON.parse(saveExtraStuff);
-//   console.log(place);
-//   console.log(tripDetails);
-//   console.log(extraStuff);
-// } else {
-//   console.log('storage empty yo, initializing!!!!!');
-//   localStorage.setItem('placePersist', JSON.stringify(place));
-//   localStorage.setItem('detailsPersist', JSON.stringify(tripDetails));
-//   localStorage.setItem('extraPersist', JSON.stringify(extraStuff));
-// }
-
-
+var handleSubmitClick = function(event) {
+  testDropValue();
+  hasInfo();
+}
 var handleSaveClick = function(event) {
   renderJournal();
 }
-// var handleDeleteClick = function(event) {
-//   console.log('deleting local storage!');
-//   localStorage.clear();
-// }
+var handleDeleteClick = function(event) {
+  console.log('deleting local storage!');
+  localStorage.clear();
+}
+submit.addEventListener('click', handleSubmitClick);
 pastLists.addEventListener('submit', handleSaveClick); //event listener
 submit.addEventListener('click', handleSubmitClick);
-// deleted.addEventListener('click', handleDeleteClick);
+deleted.addEventListener('click', handleDeleteClick);
