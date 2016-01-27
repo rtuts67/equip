@@ -11,12 +11,30 @@ function CreateAllInfo(details, extraStuff) {
   this.details = details;
   this.extraStuff = extraStuff;
   allTrips.push(this);
+<<<<<<< HEAD
+=======
+  this.addInput();
+>>>>>>> luc
 }
 
 if (localStorage) {
   var newTrip = new CreateAllInfo(details, extraStuff)
 }
 
+<<<<<<< HEAD
+=======
+CreateAllInfo.prototype.addInput('dropdown') {
+  var newDiv = document.createElement('div');
+  var selectHTML = "";
+  selectHTML="<select>";
+  for(i = 0; i < allTrips.length; i = i + 1) {
+    selectHTML += "<option value='" + allTrips[i] + "'>" + allTrips[i] + "</option>";
+  }
+  selectHTML += "</select>";
+  newDiv.innerHTML = selectHTML;
+  document.getElementById('dropdown').appendChild(newDiv);
+}
+>>>>>>> luc
 // var place = [];
 // var tripDetails = [];
 // var extraStuff = [];
