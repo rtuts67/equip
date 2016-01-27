@@ -188,6 +188,7 @@ iconThree.addEventListener('click', function() {
   twoThree.src = bwArray[10].src;
   threePlus.src = colorArray[11].src;
 });
+
 // DURATION EVENT HANDLER
 var finalArray;
 function handleIcon3(icon) {
@@ -237,19 +238,19 @@ function handleButton(e) {
     }
     finalList.appendChild(loadList);
   }
-tripName.style.display = 'none';
-active.style.display = 'none';
-weath.style.display = 'none';
-dur.style.display = 'none';
-results.style.display = 'none';
-saveButton.style.display = 'block';
-clearList.style.display = 'block';
-}
+  tripName.style.display = 'none';
+  active.style.display = 'none';
+  weath.style.display = 'none';
+  dur.style.display = 'none';
+  results.style.display = 'none';
+  saveButton.style.display = 'block';
+  clearList.style.display = 'block';
+};
 
 function Trip(tripName, tripList) {
   this.name = tripName;
   this.list = tripList;
-}
+};
 
 function checkLS() {
   if (localStorage.totalTrips) {
@@ -265,12 +266,19 @@ var totalTrips = [];
 
 saveButton.addEventListener('click', handleSave);
 function handleSave(e) {
+  if (localStorage.totalTrips) {
+    var z = localStorage.getItem('totalTrips');
+    var a = JSON.parse(z);
+    totalTrips = a;
+  }
   var newTrip = new Trip(listName, finalArray);
   totalTrips.push(newTrip);
   console.log(totalTrips);
+
   var b = JSON.stringify(totalTrips);
   localStorage.setItem('totalTrips', b);
 };
+
 // CLEAR LIST BUTTON
 clearList.addEventListener('click', handleClearList);
 function handleClearList() {
