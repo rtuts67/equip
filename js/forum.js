@@ -1,29 +1,29 @@
 'use strict'
-var allTrips = [];
+var allTrips = ['testing'];
 var pastLists = document.getElementById('past-lists'); //DOM ids
 var dropdown = document.getElementById('dropdown');
 var saveButton = document.getElementById('save-past-list');
 var deleted = document.getElementById('delete');
+var munir = localStorage.getItem('equipList');
 
 function CreateAllInfo(details, extraStuff) {
   this.name = '';
   this.list = [],
   this.details = details;
   this.extraStuff = extraStuff;
+  console.log(details);
   allTrips.push(this);
-<<<<<<< HEAD
-=======
+  console.log(addInput());
   this.addInput();
->>>>>>> luc
 }
 
 if (localStorage) {
-  var newTrip = new CreateAllInfo(details, extraStuff)
+  // var newTrip = new CreateAllInfo(details, extraStuff)
 }
-
-<<<<<<< HEAD
-=======
-CreateAllInfo.prototype.addInput('dropdown') {
+var test = new CreateAllInfo('details here', 'extra here')
+CreateAllInfo.prototype.addInput = function() {
+  console.log('inside prototype');
+  var dropdown = document.getElementById('dropdown');
   var newDiv = document.createElement('div');
   var selectHTML = "";
   selectHTML="<select>";
@@ -32,9 +32,8 @@ CreateAllInfo.prototype.addInput('dropdown') {
   }
   selectHTML += "</select>";
   newDiv.innerHTML = selectHTML;
-  document.getElementById('dropdown').appendChild(newDiv);
+  document.getElementById(dropdown).appendChild(newDiv);
 }
->>>>>>> luc
 // var place = [];
 // var tripDetails = [];
 // var extraStuff = [];
@@ -89,5 +88,5 @@ var handleDeleteClick = function(event) {
   console.log('deleting local storage!');
   localStorage.clear();
 }
-pastLists.addEventListener('submit', handleSaveClick); //event listener
+// pastLists.addEventListener('submit', handleSaveClick); //event listener
 deleted.addEventListener('click', handleDeleteClick);
