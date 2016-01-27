@@ -245,8 +245,8 @@ function handleButton(e) {
     }
     var newTrip = new Trip(listName, finalArray);
     finalList.appendChild(loadList);
-    totalTrips.push(newTrip);
     console.log(totalTrips);
+    totalTrips.push(newTrip);
 
     var b = JSON.stringify(totalTrips);
     localStorage.setItem('totalTrips', b);
@@ -267,7 +267,7 @@ function checkLS() {
   if (localStorage.totalTrips) {
     var z = localStorage.getItem('totalTrips');
     var a = JSON.parse(z);
-    console.log(a);
+    
     totalTrips = a;
   }
 };
