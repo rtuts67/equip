@@ -217,16 +217,15 @@ function getLocalStorage() {
   }
 }
 
-
 // var trips = new Trip();
 function Trip(tripName, tripList) {
   this.name = tripName;
   this.list = tripList;
 }
 
-
 // CREATE LIST BUTTON
 var totalTrips = [];
+
 results.addEventListener('click', handleButton);
 function handleButton(e) {
   if (!listEl.value) {
@@ -243,31 +242,28 @@ function handleButton(e) {
       listArray.textContent = finalArray[j];
       loadList.appendChild(listArray);
     }
-    var newTrip = new Trip(listName, finalArray);
     finalList.appendChild(loadList);
-    console.log(totalTrips);
-    totalTrips.push(newTrip);
-
-    var b = JSON.stringify(totalTrips);
-    localStorage.setItem('totalTrips', b);
-
-    // get item "tripList"
-    // if trip list doesnt exist make an empty ARRAY
-    // add newtrip to triplist array
-    // store triplist back in "tripList"
   }
   tripName.style.display = 'none';
   active.style.display = 'none';
   weath.style.display = 'none';
   dur.style.display = 'none';
   results.style.display = 'none';
-};
+}
+
+//
+//
+//   var newTrip = new Trip(listName, finalArray);
+//   totalTrips.push(newTrip);
+//   var b = JSON.stringify(totalTrips);
+//   localStorage.setItem('totalTrips', b);
+// }
+// };
 
 function checkLS() {
   if (localStorage.totalTrips) {
     var z = localStorage.getItem('totalTrips');
     var a = JSON.parse(z);
-    
     totalTrips = a;
   }
 };
