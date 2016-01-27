@@ -217,15 +217,8 @@ function getLocalStorage() {
   }
 }
 
-// var trips = new Trip();
-function Trip(tripName, tripList) {
-  this.name = tripName;
-  this.list = tripList;
-}
-
-// CREATE LIST BUTTON
-var totalTrips = [];
-
+// EQUIP ME BUTTON
+var listName;
 results.addEventListener('click', handleButton);
 function handleButton(e) {
   if (!listEl.value) {
@@ -234,7 +227,7 @@ function handleButton(e) {
     e.preventDefault();
     var finalList = document.getElementById('finalList');
     var loadList = document.getElementById('loadList');
-    var listName = listEl.value;
+    listName = listEl.value;
     var nameEl = document.getElementById('nameEl');
     for (var j = 0; j < finalArray.length; j++) {
       nameEl.textContent = listName;
@@ -244,21 +237,19 @@ function handleButton(e) {
     }
     finalList.appendChild(loadList);
   }
-  tripName.style.display = 'none';
-  active.style.display = 'none';
-  weath.style.display = 'none';
-  dur.style.display = 'none';
-  results.style.display = 'none';
+tripName.style.display = 'none';
+active.style.display = 'none';
+weath.style.display = 'none';
+dur.style.display = 'none';
+results.style.display = 'none';
+saveButton.style.display = 'block';
+clearList.style.display = 'block';
 }
 
-//
-//
-//   var newTrip = new Trip(listName, finalArray);
-//   totalTrips.push(newTrip);
-//   var b = JSON.stringify(totalTrips);
-//   localStorage.setItem('totalTrips', b);
-// }
-// };
+function Trip(tripName, tripList) {
+  this.name = tripName;
+  this.list = tripList;
+}
 
 function checkLS() {
   if (localStorage.totalTrips) {
@@ -269,18 +260,28 @@ function checkLS() {
 };
 checkLS();
 
+// SAVE BUTTON
+var totalTrips = [];
 
+saveButton.addEventListener('click', handleSave);
+function handleSave(e) {
+  var newTrip = new Trip(listName, finalArray);
+  totalTrips.push(newTrip);
+  console.log(totalTrips);
+  var b = JSON.stringify(totalTrips);
+  localStorage.setItem('totalTrips', b);
+};
 // CLEAR LIST BUTTON
 clearList.addEventListener('click', handleClearList);
 function handleClearList() {
-  lsClear.style.display = 'block';
+  // lsClear.style.display = 'block';
   location.reload(false);
 }
 
-// CLEAR LS BUTTON AND RESTART PAGE
-var clearLS = document.getElementById('lsClear');
-var handleLSClear = function() {
-  console.log('clearing Local Storage');
-  localStorage.clear();
-};
-clearLS.addEventListener('click', handleLSClear);
+// // CLEAR LS BUTTON AND RESTART PAGE
+// var clearLS = document.getElementById('lsClear');
+// var handleLSClear = function() {
+//   console.log('clearing Local Storage');
+//   localStorage.clear();
+// };
+// clearLS.addEventListener('click', handleLSClear);
