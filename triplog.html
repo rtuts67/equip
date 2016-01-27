@@ -20,42 +20,52 @@
     </nav>
 
     <select id="dropdown"></select>
+    <button id="submit">Submit</button>
 
     <section class="formContainer">
-      <form id="past-lists">
-        <fieldset>
-          <legend>PAST OUTDOOR ACTIVITY LOGS</legend>
 
-          <div class="formLabel">
-            <label for="whereTo">WHERE DID YOU GO?</label>
-          </div>
-          <div class="formField">
-            <input name="whereTo" type="text" size="54"><br>
-          </div>
+      <article class="listArticle">
+        <ul id="showEquipList"></ul>
+      </article>
 
-          <div class="formLabel">
-            <label for="detail">TRIP DETAILS</label>
-          </div>
-          <div class="formField">
-            <textarea name="detail" cols="100" rows="6"></textarea><br>
-          </div>
+      <article class="formArticle">
+        <form id="past-lists" hidden>
+          <fieldset>
+            <legend>PAST OUTDOOR ACTIVITY LOGS</legend>
 
-          <div class="formLabel">
-            <label for="extras">WERE YOU MISSING ANYTHING?</label>
-          </div>
-          <div class="formField">
-            <input name="extras" type="text" size="54"><br>
-          </div>
+            <div class="formLabel">
+              <label for="whereTo">WHERE DID YOU GO?</label>
+            </div>
+            <div class="formField">
+              <input name="whereTo" type="text" size="54"><br>
+            </div>
 
-          <div class="buttons">
-            <button id="save-past-list">Save Trip Log</button>
-            <button id="delete">Clear all Journal Entries</button>
-          </div>
-        </fieldset>
-      </form>
+            <div class="formLabel">
+              <label for="detail">TRIP DETAILS</label>
+            </div>
+            <div class="formField">
+              <textarea name="detail" cols="100" rows="6"></textarea><br>
+            </div>
+
+            <div class="formLabel">
+              <label for="extras">WERE YOU MISSING ANYTHING?</label>
+            </div>
+            <div class="formField">
+              <input name="extras" type="text" size="54"><br>
+            </div>
+
+            <div class="buttons">
+              <button id="save-past-list">Save Trip Log</button>
+            </div>
+          </fieldset>
+        </form>
+      </article>
+
+      <section id="ulEquipList">
+        <ul id="journalEntries"></ul>
+      </section>
+      <button id="delete">Clear all Journal Entries</button>
     </section>
-
-    <ul id="journalEntries"></ul>
     <script src="js/forum.js"></script>
   </body>
 </html>
