@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Equip Yourself</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   </head>
@@ -18,6 +20,7 @@
     </nav>
 
     <form action="equip.html" method="post">
+
       <section id="tripNames">
         <input id="tripName" type="text" id="n1" name="tripLogName" required="required" >
       </section>
@@ -43,32 +46,29 @@
         <img class="icons" id="threePlus"/>
       </section>
 
-
       <section id="buttonList">
-
-
         <article>
           <h3 id="nameEl"></h3>
           <button class="buttons" id="results" type="submit" name="button">EQUIP ME</button>
         </article>
-
         <!-- <article>
           <a href="javascript:location.reload(true)"><button class="buttons" id="lsClear" type="button" name="button">RESET ALL LISTS</button></a>
         </article> -->
       </section>
-
       <section id="finalList">
         <ul type="checkbox" id="loadList"></ul>
       </section>
     </form>
 
-    <section>
-      <button hidden class="buttons" id="clearList">CLEAR CURRENT LIST</button>
+    <section id="buttonSection">
+      <article class="cButton">
+        <button hidden class="buttons" id="clearList">RESET</button>
+      </article>
+      <article class="sButton">
+        <button hidden class="buttons" id="saveButton" type="button">SAVE LIST</button>
+      </article>
     </section>
 
-    <section>
-      <button hidden class="buttons" id="saveButton" type="button">SAVE LIST</button>
-    </section>
 
     <script type="text/javascript" src="js/app.js"></script>
   </body>
