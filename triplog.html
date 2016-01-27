@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Trip Log</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/forum.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -16,35 +18,38 @@
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
+
+    <select id="dropdown"></select>
+
     <section class="formContainer">
       <form id="past-lists">
         <fieldset>
-          <legend>Past Outdoor Activities Journal</legend>
+          <legend>PAST OUTDOOR ACTIVITY LOGS</legend>
 
           <div class="formLabel">
-            <label for="whereTo">Where did you go?</label>
+            <label for="whereTo">WHERE DID YOU GO?</label>
           </div>
           <div class="formField">
-            <input name="whereTo" type="text" size="75"><br>
+            <input name="whereTo" type="text" size="54"><br>
           </div>
 
           <div class="formLabel">
-            <label for="detail">Trip details:</label>
+            <label for="detail">TRIP DETAILS</label>
           </div>
           <div class="formField">
             <textarea name="detail" cols="100" rows="6"></textarea><br>
           </div>
 
           <div class="formLabel">
-            <label for="extras">Stuff I wish I brought?</label>
+            <label for="extras">WERE YOU MISSING ANYTHING?</label>
           </div>
           <div class="formField">
-            <input name="extras" type="text" size="75"><br>
+            <input name="extras" type="text" size="54"><br>
           </div>
 
           <div class="buttons">
             <button id="save-past-list">Save Trip Log</button>
-            <button id="delete">Clear all Journal Entries?</button>
+            <button id="delete">Clear all Journal Entries</button>
           </div>
         </fieldset>
       </form>
