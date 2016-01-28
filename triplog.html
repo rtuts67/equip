@@ -10,6 +10,7 @@
   </head>
   <body>
     <header><img id="headerLogo" src="img/branding/equiplogo.png"/></header>
+    <!-- NAVIGATION -->
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
@@ -18,52 +19,60 @@
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
-
-    <select id="dropdown"></select>
-    <button id="submit">Submit</button>
-
+    <!-- DROPDOWN -->
+    <section id="dropDownSection">
+      <article class="drop">
+        <select id="dropdown"></select>
+      </article>
+      <article class="drop">
+        <button id="submit">Submit</button>
+      </article>
+    </section>
+    <!-- MAIN -->
     <section class="formContainer">
-
+      <!-- LIST -->
       <article class="listArticle">
         <ul id="showEquipList"></ul>
+        <ul id="ulEquipList">
       </article>
-
+      <!-- INPUT FORM -->
       <article class="formArticle">
         <form id="past-lists" hidden>
           <fieldset>
             <legend>PAST OUTDOOR ACTIVITY LOGS</legend>
-
             <div class="formLabel">
               <label for="whereTo">WHERE DID YOU GO?</label>
             </div>
             <div class="formField">
               <input name="whereTo" type="text" size="54"><br>
             </div>
-
             <div class="formLabel">
               <label for="detail">TRIP DETAILS</label>
             </div>
             <div class="formField">
               <textarea name="detail" cols="100" rows="6"></textarea><br>
             </div>
-
             <div class="formLabel">
               <label for="extras">WERE YOU MISSING ANYTHING?</label>
             </div>
             <div class="formField">
               <input name="extras" type="text" size="54"><br>
             </div>
-
-            <div class="buttons">
-              <button id="save-past-list">Save Trip Log</button>
-            </div>
           </fieldset>
+          <!-- SAVE / RENDER INPUT BUTTON -->
+          <div class="buttons">
+            <button id="save-past-list">Save Trip Log</button>
+          </div>
         </form>
       </article>
-
-      <section id="ulEquipList">
-        <ul id="journalEntries"></ul>
+      <section id="inputSection">
+        <article id="journalEntries"></article>
+        <!-- <article id="ulEquipList"></article> -->
       </section>
+    </section>
+    <!-- PRINT INPUT -->
+    <!-- CLEAR ALL BUTTON -->
+    <section id="clearAll">
       <button id="delete">Clear all Journal Entries</button>
     </section>
     <script src="js/forum.js"></script>
