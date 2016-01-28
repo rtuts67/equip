@@ -10,74 +10,81 @@
   </head>
   <body>
     <header><img id="headerLogo" src="img/branding/equiplogo.png"/></header>
+
+
     <!-- NAVIGATION -->
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="equip.html">EQUIP</a></li>
         <li><a href="triplog.html">LISTS</a></li>
-        <li><a href="resources.html">RESOURCES</a></li>
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
+
+
     <!-- DROPDOWN -->
     <section id="dropDownSection">
       <article class="drop">
-        <select id="dropdown" title="Equip List"></select>
+        <select id="dropdown"></select>
       </article>
       <article class="drop">
         <button id="submit">Submit</button>
       </article>
     </section>
-    <!-- MAIN -->
-    <section class="formContainer">
-      <!-- LIST -->
 
-      <article class="listArticle">
-        <h5 id="equipListTitle"></h5>
-        <ul id="showEquipList"></ul>
-        <ul id="ulEquipList">
+
+    <!-- MAIN -->
+    <section id="formContainer">
+
+      <!-- LIST -->
+      <article id="listArticle">
+        <ul id="listContainer"></ul>
       </article>
+
       <!-- INPUT FORM -->
-      <article class="formArticle">
-        <form id="past-lists" hidden>
+      <article id="formArticle">
+        <form id="pastList">
           <fieldset>
-            <legend>PAST OUTDOOR ACTIVITY LOGS</legend>
+            <legend id="legend" >OUTDOOR ACTIVITY LOGS</legend>
             <div class="formLabel">
               <label for="whereTo">WHERE DID YOU GO?</label>
             </div>
             <div class="formField">
-              <input name="whereTo" type="text" size="54"><br>
+              <input id='where' name="whereTo" type="text" size="54"><br>
             </div>
             <div class="formLabel">
               <label for="detail">TRIP DETAILS</label>
             </div>
             <div class="formField">
-              <textarea name="detail" cols="100" rows="6"></textarea><br>
+              <textarea id="detail" name="detail" cols="100" rows="6"></textarea><br>
             </div>
             <div class="formLabel">
               <label for="extras">WERE YOU MISSING ANYTHING?</label>
             </div>
             <div class="formField">
-              <input name="extras" type="text" size="54"><br>
+              <input id="wish" name="extras" type="text" size="54"><br>
             </div>
           </fieldset>
           <!-- SAVE / RENDER INPUT BUTTON -->
           <div class="buttons">
-            <button id="save-past-list">Save Trip Log</button>
+            <button id="pastListButton">Save Trip Log</button>
           </div>
         </form>
       </article>
-      <section id="inputSection">
-        <article id="journalEntries"></article>
-        <!-- <article id="ulEquipList"></article> -->
-      </section>
+      <!-- PRINT INPUT -->
+      <article id="inputSection">
+        <div id="journalEntries"></div>
+      </article>
     </section>
-    <!-- PRINT INPUT -->
+
+
     <!-- CLEAR ALL BUTTON -->
     <section id="clearAll">
-      <button id="delete">Clear all Journal Entries</button>
+      <button id="deleted" type="button">CLEAR ALL ENTRIES</button>
     </section>
+    
+    <!-- SCRIPT -->
     <script src="js/forum.js"></script>
   </body>
 </html>
