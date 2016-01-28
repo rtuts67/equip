@@ -23,7 +23,7 @@ nav {
   justify-content: center;
   align-content: center;
   background-color: none;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 20px 10px;
   margin: 10px 10px -35px 10px;
 }
 
@@ -100,6 +100,7 @@ div#slider figure {
 #bigFlex {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 #equipContent {
@@ -168,6 +169,11 @@ div#slider figure {
   justify-content: center;
 }
 
+#finalList {
+  /*display: flex;*/
+  justify-content: center;
+}
+
 .cButton {
   display: flex;
   padding: 0px 5px 0px 5px;
@@ -176,6 +182,10 @@ div#slider figure {
 .sButton {
   display: flex;
   padding: 0px 5px 0px 5px;
+}
+
+.sButton > a {
+  text-decoration: none;
 }
 
 /*RESOURCES PAGE*/
