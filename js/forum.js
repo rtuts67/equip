@@ -64,7 +64,7 @@ addInput();
 var makePastLists = function() {
   var dropDownValue = document.getElementById('dropdown').value;
   var journalEl = document.createElement('li');
-  journalEl.innerHTML = '<ul><li>Destination: ' + placeArray[dropDownValue] + '</li><li>Comments: ' + detailsArray[dropDownValue] + '</li><li>Whish I\'d brought: ' + extraStuffArray[dropDownValue] + '</li></ul><br>';
+  journalEl.innerHTML = '<ul class="tripJournalContainer"><li class="tripJournalTitle">Destination:</li><li class="tripJournalInput">' + placeArray[dropDownValue] + '</li><li class="tripJournalTitle">Comments:</li><li class="tripJournalInput">' + detailsArray[dropDownValue] + '</li><li class="tripJournalTitle">Wish I\'d brought:</li><li class="tripJournalInput">' + extraStuffArray[dropDownValue] + '</li></ul><br>';
   journalEntries.appendChild(journalEl);
 }
 
