@@ -8,6 +8,10 @@
   flex-direction: row;
 }
 
+#dropdown {
+  width: 150px;
+}
+
 .drop {
   display: flex;
   padding: 5px 5px 0px 5px;
@@ -30,12 +34,14 @@
   overflow: scroll;
   max-height: 310px;
   font-family: 'Montserrat', sans-serif;
+  padding: 10px 20px 10px 0px;
 }
 
 .listArticle {
   display: flex;
   background-color: none;
   padding: 10px 10px 10px 10px;
+  border: 1px dashed #C9CCC9;
 }
 
 #clearAll {
