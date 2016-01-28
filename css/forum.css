@@ -2,16 +2,43 @@
   display: flex;
 }
 
+#dropDownSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.drop {
+  display: flex;
+  padding: 5px 5px 0px 5px;
+}
+
 .formContainer {
   display: flex;
   justify-content: center;
   background-color: none;
   margin-bottom: 12px;
+  flex-direction: row;
+}
+
+.formArticle {
+  display: flex;
+  padding: 10px 10px 10px 10px;
+}
+
+.listArticle {
+  display: flex;
+  background-color: #d0fe90;
+  padding: 10px 10px 10px 10px;
+}
+
+#clearAll {
+  display: flex;
+  justify-content: center;
 }
 
 #past-lists {
   font-family: 'Montserrat', sans-serif;
-
 }
 
 legend {

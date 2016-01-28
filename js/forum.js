@@ -20,7 +20,7 @@ var savedExtraStuff = localStorage.getItem('extraStuffPersist');
 
 if (savedPlace) {
   placeArray = JSON.parse(savedPlace);
-  detailsArray = JSON.parse(savedDetails)
+  detailsArray = JSON.parse(savedDetails);
   extraStuffArray = JSON.parse(savedExtraStuff);
 } else {
   console.log('storage is empty for these arrays, initializing!');
