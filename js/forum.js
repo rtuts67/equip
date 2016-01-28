@@ -61,14 +61,6 @@ function addInput() {
 }
 addInput();
 
-function addInputToListTitle() {
-  var equipListTitle = document.getElementById('equipListTitle');
-  for(var i = 0; i < allTripsArray.length; i ++) {
-    equipListTitle.textContent = allTripsArray[i].name + ' List';
-  }
-}
-addInputToListTitle();
-
 // var makePastLists = function() {
 //   var dropDownValue = document.getElementById('dropdown').value;
 //   var journalEl = document.createElement('li');
@@ -119,6 +111,8 @@ var testDropValue = function() {
       equipList.appendChild(equipEl);
     }
     ulEquipList.appendChild(equipList);
+    var equipListTitle = document.getElementById('equipListTitle');
+    equipListTitle.textContent = allTripsArray[dropDownValue].name + ' List';
   }
 }
 
