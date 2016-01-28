@@ -127,6 +127,7 @@ var hasInfo = function() {
 var handleSubmitClick = function(event) {
   testDropValue();
   hasInfo();
+
 }
 var handleSaveClick = function(event) {
   renderJournal();
