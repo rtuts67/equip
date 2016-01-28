@@ -103,6 +103,8 @@ var testDropValue = function() {
       equipList.appendChild(equipEl);
     }
     ulEquipList.appendChild(equipList);
+    var equipListTitle = document.getElementById('equipListTitle');
+    equipListTitle.textContent = allTripsArray[dropDownValue].name + ' List:';
   }
 }
 
