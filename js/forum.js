@@ -9,14 +9,12 @@ var pastLists = document.getElementById('past-lists'); //DOM ids
 var submit = document.getElementById('submit');
 var saveButton = document.getElementById('save-past-list');
 var deleted = document.getElementById('delete');
-var equipList = document.getElementById('showEquipList');
-var ulEquipList = document.getElementById('ulEquipList');
+var selectAnother = document.getElementById('selectAnother');
 
 var savedTripType = localStorage.getItem('totalTrips');
 var savedPlace = localStorage.getItem('placePersist');
 var savedDetails = localStorage.getItem('detailsPersist');
 var savedExtraStuff = localStorage.getItem('extraStuffPersist');
-
 
 if (savedPlace) {
   placeArray = JSON.parse(savedPlace);
@@ -24,9 +22,6 @@ if (savedPlace) {
   extraStuffArray = JSON.parse(savedExtraStuff);
 } else {
   console.log('storage is empty for these arrays, initializing!');
-  // localStorage.setItem('placePersist', JSON.stringify(placeArray));
-  // localStorage.setItem('detailsPersist', JSON.stringify(detailsArray));
-  // localStorage.setItem('extraStuffPersist', JSON.stringify(extraStuffArray));
 }
 if (savedTripType) { //test localStorage
   allTripsArray = JSON.parse(savedTripType);
@@ -49,6 +44,7 @@ function renderJournal() {
   localStorage.setItem('placePersist', JSON.stringify(placeArray));
   localStorage.setItem('detailsPersist', JSON.stringify(detailsArray));
   localStorage.setItem('extraStuffPersist', JSON.stringify(extraStuffArray));
+  location.reload(false);
 }
 function addInput() {
   var dropdown = document.getElementById('dropdown');
@@ -61,16 +57,10 @@ function addInput() {
 }
 addInput();
 
-// var makePastLists = function() {
-//   var dropDownValue = document.getElementById('dropdown').value;
-//   var journalEl = document.createElement('li');
-//   journalEl.innerHTML = '<ul class="tripJournalContainer"><li class="tripJournalTitle">Destination:</li><li class="tripJournalInput">' + placeArray[dropDownValue] + '</li><li class="tripJournalTitle">Comments:</li><li class="tripJournalInput">' + detailsArray[dropDownValue] + '</li><li class="tripJournalTitle">Wish I\'d brought:</li><li class="tripJournalInput">' + extraStuffArray[dropDownValue] + '</li></ul><br>';
-//   journalEntries.appendChild(journalEl);
-// }
-
 var makePastLists = function() {
   var dropDownValue = document.getElementById('dropdown').value;
   var journalEntries = document.getElementById('journalEntries');
+  journalEntries.innerHTML = "";
 
   //Destination render:
   var destination = document.createElement('h4');
@@ -98,8 +88,10 @@ var makePastLists = function() {
 }
 
 var testDropValue = function() {
+  var equipList = document.getElementById('showEquipList');
+  var ulEquipList = document.getElementById('ulEquipList');
+  equipList.innerHTML = "";
   var dropDownValue = document.getElementById('dropdown').value;
-  // var emptyList = [];
   if (dropDownValue == null) {
     alert('There is nothing to submit! Head to the Equip tab to get a list started');
   } else {
@@ -117,17 +109,19 @@ var testDropValue = function() {
 var hasInfo = function() {
   var dropDownValue = document.getElementById('dropdown').value;
   if (placeArray[dropDownValue]) {
-      makePastLists();
+    makePastLists();
   } else {
+    var journalEntries = document.getElementById('journalEntries');
+    var equipList = document.getElementById('showEquipList');
+    journalEntries.innerHTML = "";
+    equipList.innerHTML = "";
     pastLists.removeAttribute('hidden');
-    // Form will appear to add trip details
   }
 }
 
 var handleSubmitClick = function(event) {
   testDropValue();
   hasInfo();
-
 }
 var handleSaveClick = function(event) {
   renderJournal();
@@ -136,7 +130,7 @@ var handleDeleteClick = function(event) {
   console.log('deleting local storage!');
   localStorage.clear();
 }
-submit.addEventListener('click', handleSubmitClick);
+
 pastLists.addEventListener('submit', handleSaveClick); //event listener
 submit.addEventListener('click', handleSubmitClick);
 deleted.addEventListener('click', handleDeleteClick);
