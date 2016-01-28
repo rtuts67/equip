@@ -61,11 +61,40 @@ function addInput() {
 }
 addInput();
 
+// var makePastLists = function() {
+//   var dropDownValue = document.getElementById('dropdown').value;
+//   var journalEl = document.createElement('li');
+//   journalEl.innerHTML = '<ul class="tripJournalContainer"><li class="tripJournalTitle">Destination:</li><li class="tripJournalInput">' + placeArray[dropDownValue] + '</li><li class="tripJournalTitle">Comments:</li><li class="tripJournalInput">' + detailsArray[dropDownValue] + '</li><li class="tripJournalTitle">Wish I\'d brought:</li><li class="tripJournalInput">' + extraStuffArray[dropDownValue] + '</li></ul><br>';
+//   journalEntries.appendChild(journalEl);
+// }
+
 var makePastLists = function() {
   var dropDownValue = document.getElementById('dropdown').value;
-  var journalEl = document.createElement('li');
-  journalEl.innerHTML = '<ul class="tripJournalContainer"><li class="tripJournalTitle">Destination:</li><li class="tripJournalInput">' + placeArray[dropDownValue] + '</li><li class="tripJournalTitle">Comments:</li><li class="tripJournalInput">' + detailsArray[dropDownValue] + '</li><li class="tripJournalTitle">Wish I\'d brought:</li><li class="tripJournalInput">' + extraStuffArray[dropDownValue] + '</li></ul><br>';
-  journalEntries.appendChild(journalEl);
+  var journalEntries = document.getElementById('journalEntries');
+
+  //Destination render:
+  var destination = document.createElement('h4');
+  destination.textContent = 'Destination:';
+  journalEntries.appendChild(destination);
+  var inputDestination = document.createElement('p');
+  inputDestination.textContent = placeArray[dropDownValue];
+  journalEntries.appendChild(inputDestination);
+
+  //Trip Details render:
+  var tripDetails = document.createElement('h4');
+  tripDetails.textContent = 'Trip Details:';
+  journalEntries.appendChild(tripDetails);
+  var inputTripDetails = document.createElement('p');
+  inputTripDetails.textContent = detailsArray[dropDownValue];
+  journalEntries.appendChild(inputTripDetails);
+
+  //Trip Details render:
+  var wishIdBrought = document.createElement('h4');
+  wishIdBrought.textContent = 'Wish I\'d Brought:'
+  journalEntries.appendChild(wishIdBrought);
+  var inputWish = document.createElement('p');
+  inputWish.textContent = extraStuffArray[dropDownValue];
+  journalEntries.appendChild(inputWish);
 }
 
 var testDropValue = function() {

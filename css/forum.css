@@ -46,17 +46,3 @@ label {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 }
-
-/*Styles for journal entries dynamically rendered by JS*/
-.tripJournalContainer {
-  list-style: none;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.tripJournalTitle {
-  font-size: 1.5em;
-}
-
-.tripJournalInput {
-  margin-bottom: 15px;
-}
