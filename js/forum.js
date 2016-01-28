@@ -57,10 +57,17 @@ function addInput() {
 }
 addInput();
 
+
+
+
+
+
 var makePastLists = function() {
   var dropDownValue = document.getElementById('dropdown').value;
+  var inputSection = document.getElementById('inputSection');
   var journalEntries = document.getElementById('journalEntries');
-  journalEntries.innerHTML = "";
+  inputSection.removeChild(journalEntries);
+  journalEntries.setAttribute('id', 'journalEntries');
 
   //Destination render:
   var destination = document.createElement('h5');
