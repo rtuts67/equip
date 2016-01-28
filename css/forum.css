@@ -26,8 +26,21 @@
   padding: 10px 10px 10px 10px;
 }
 
+#equipListTitle {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 25px;
+}
+
+#showEquipList {
+  font-family: 'Montserrat', sans-serif;
+  list-style: inside;
+  overflow: scroll;
+  max-height: 310px;
+}
+
 .listArticle {
   display: flex;
+  flex-direction: column;
   background-color: #d0fe90;
   padding: 10px 10px 10px 10px;
 }
