@@ -10,19 +10,16 @@
   </head>
   <body>
     <header><img id="headerLogo" src="img/branding/equiplogo.png"/></header>
-
-
     <!-- NAVIGATION -->
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="equip.html">EQUIP</a></li>
         <li><a href="triplog.html">LISTS</a></li>
+        <li><a href="resources.html">RESOURCES</a></li>
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
-
-
     <!-- DROPDOWN -->
     <section id="dropDownSection">
       <article class="drop">
@@ -32,19 +29,15 @@
         <button id="submit">Submit</button>
       </article>
     </section>
-
-
     <!-- MAIN -->
     <section id="formContainer">
-
       <!-- LIST -->
       <article id="listArticle">
-        <ul id="listContainer"></ul>
+        <ul hidden id="listContainer"></ul>
       </article>
-
       <!-- INPUT FORM -->
       <article id="formArticle">
-        <form id="pastList">
+        <form hidden id="inputForm">
           <fieldset>
             <legend id="legend" >OUTDOOR ACTIVITY LOGS</legend>
             <div class="formLabel">
@@ -57,7 +50,7 @@
               <label for="detail">TRIP DETAILS</label>
             </div>
             <div class="formField">
-              <textarea id="detail" name="detail" cols="100" rows="6"></textarea><br>
+              <textarea id="details" name="detail" cols="100" rows="6"></textarea><br>
             </div>
             <div class="formLabel">
               <label for="extras">WERE YOU MISSING ANYTHING?</label>
@@ -77,13 +70,10 @@
         <div id="journalEntries"></div>
       </article>
     </section>
-
-
     <!-- CLEAR ALL BUTTON -->
     <section id="clearAll">
       <button id="deleted" type="button">CLEAR ALL ENTRIES</button>
     </section>
-    
     <!-- SCRIPT -->
     <script src="js/forum.js"></script>
   </body>

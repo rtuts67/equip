@@ -8,48 +8,63 @@
   flex-direction: row;
 }
 
-#dropdown {
-  width: 150px;
-}
-
 .drop {
   display: flex;
   padding: 5px 5px 0px 5px;
 }
 
-.formContainer {
+#dropdown {
+  width: 150px;
+}
+
+#formContainer {
   display: flex;
   justify-content: center;
   background-color: none;
   margin-bottom: 12px;
   flex-direction: row;
+  padding: 10px 10px 10px 10px;
+  max-height: 500px;
 }
 
-.formArticle {
+#formArticle {
   display: flex;
   padding: 10px 10px 10px 10px;
+  border: 5px solid #555; /* FIND ANOTHER WAY */
 }
 
-#equipListTitle {
-  font-family: 'Montserrat', sans-serif;
-  padding: 20px 10px 0px 25px;
-
-
-}
-
-#showEquipList {
-  overflow: scroll;
-  max-height: 310px;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0px 20px 10px 0px;
-}
-
-.listArticle {
+#inputSection {
   display: flex;
   flex-direction: column;
-  background-color: none;
-  padding: 0px 10px 10px 10px;
-  border: 1px dashed #C9CCC9;
+  padding: 10px 10px 10px 10px;
+  border-color: black;
+  border: 5px solid #555; /* FIND ANOTHER WAY */
+  overflow: scroll;
+  max-height: 500px;
+}
+
+#listContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#dropListName {
+  display: flex;
+  justify-content: center;
+}
+
+#listArticle {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 10px;
+  border-color: black;
+  border: 5px solid #555; /* FIND ANOTHER WAY */
+  overflow: scroll;
+  max-height: 500px;
+}
+
+#legend {
+  text-align: center;
 }
 
 #clearAll {
@@ -74,7 +89,6 @@ legend {
   margin-bottom: 5px;
   background-color: none;
   font-family: 'Montserrat', sans-serif;
-
 }
 
 .formField {
@@ -92,4 +106,9 @@ label {
   list-style: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+}
+
+#inputSection {
+  display: flex;
+  justify-content: center;
 }
