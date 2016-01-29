@@ -1,13 +1,11 @@
 'use strict';
 // FINAL ARRAY
 var fullArray = [];
-
 // DECLARING VARIABLES
 var iconHike, iconMount, iconSnowboard, iconSki, iconCamp, iconSunny, iconRainy, iconCloudy, iconSnowy, iconOne, iconTwo, iconThree, essentials;
 var active = document.getElementById('activities');
 var weath = document.getElementById('weather');
 var dur = document.getElementById('duration');
-
 // ITEMS ARRAY
 var activityItems = [
   ['Hiking Shoes/Boots', '1 Pair of Socks', '1 Pair of Underwear', '1 Shirt/Long­sleeve Shirt', '1 Pair of Shorts/Pants', '30-­40 Liter Backpack', 'Water Bottles', 'Swimsuit (if hiking to a lake)'],
@@ -15,28 +13,19 @@ var activityItems = [
   ['Snowboard/Splitboard', 'Snowboard Boots', 'Helmet', 'Trekking Poles', 'Avalanche Beacon', 'Snow Shovel', 'Avalanche Probe', 'Snow Study Kit', 'Snow Saw', 'Rutschblock Cord', 'Snowshoes/Skins', 'Snow Jacket', 'Snow Pants', 'Snow Gloves/Liners', 'Balaclava', 'Base Layers', 'Insulation Layer'],
   ['Skis (Touring Setup)', 'Ski Boots', 'Helmet', 'Poles', 'Avalanche Beacon', 'Snow Shovel', 'Avalanche Probe', 'Snow Study Kit', 'Snow Saw', 'Rutschblock Cord', 'Skins', 'Snow Jacket', 'Snow Pants', 'Snow Gloves/Liners', 'Balaclava', 'Base Layers', 'Insulation Layer'],
   ['Tent', 'Sleeping Pad', 'Sleeping Bag', 'Tarp', 'Portable Camping Stove', 'Cookware', 'Utensils for Cooking and Eating', 'Paper Plates', 'Paper Towels', 'Garbage Bags', 'Cooler and Ice', 'Water', 'Firewood (if fires allowed)', 'Fire Starter (matches, newspaper)', 'Bug repellent', 'Warm clothing (sleep clothes)', 'Swimwear and Towel (if camping near water/beach)'],
-  ['Extra Cool/Ventilating Layers', 'Electrolytes (tablets or liquid)'],
-  ['Rain Jacket', 'Rain Pants', 'Wide-brimmed Hat', 'Dry Bags', 'Pack Cover'],
-  ['Rain Jacket', 'Rain Pants', 'Waterproof Hat', 'Dry Bags', 'Pack Cover'],
-  ['Snow Jacket', 'Snow Pants', 'Snow Gloves/Liners', 'Balaclava', 'Base Layers', 'Insulation Layer'],
-  [],
+  ['Extra Cool/Ventilating Layers', 'Electrolytes (tablets or liquid)'], ['Rain Jacket', 'Rain Pants', 'Wide-brimmed Hat', 'Dry Bags', 'Pack Cover'], ['Rain Jacket', 'Rain Pants', 'Waterproof Hat', 'Dry Bags', 'Pack Cover'], ['Snow Jacket', 'Snow Pants', 'Snow Gloves/Liners', 'Balaclava', 'Base Layers', 'Insulation Layer'], [],
   ['Sleeping Pad', 'Sleeping Bag', 'Pillow', 'Toiletries', 'Tent/Shelter', 'Stove/Pot', 'Fuel', 'Extra Batteries', 'Water Treatment (filter and/or chemical treatment)', 'Food Storage (bear canister or hanging system)', 'Camp Shoes']
 ];
-
-
 var bwArray = [new Equip('Hiking', 'bwHiking.png'), new Equip('Mountaineering', 'bwMountaineering.png'), new Equip('Backcountry Snowboarding', 'bwSnowboard.png'), new Equip('Backcountry Skiing', 'bwSki.png'), new Equip('Car Camping', 'bwCarCamping.png'), new Equip('Sunny', 'bwSunny.png'),
 new Equip('Rainy', 'bwRainy.png'), new Equip('Cloudy', 'bwCloudy.png'), new Equip('Snowy', 'bwSnow.png'), new Equip('1 Day', 'bwLessThan1.png'), new Equip('2-3 Days', 'bw2-3.png'), new Equip('3+ Days', 'bw3Plus.png')];
-
 var colorArray = [new Equip('Hiking', 'hiking.png'), new Equip('Mountaineering', 'mountaineering.png'), new Equip('Backcountry Snowboarding', 'snowboard.png'), new Equip('Backcountry Skiing', 'ski.png'), new Equip('Car Camping', 'carCamping.png'), new Equip('Sunny', 'sunny.png'),
 new Equip('Rainy', 'rainy.png'), new Equip('Cloudy', 'cloudy.png'), new Equip('Snowy', 'snow.png'), new Equip('1 Day', 'lessThan1.png'), new Equip('2-3 Days', '2-3.png'), new Equip('3+ Days', '3Plus.png')]
-
 // ACTIVITY CONSTRUCTOR
 function Equip(names, src) {
   this.names = names;
   this.src = 'img/icons/' + src;
   fullArray.push(this);
 };
-
 // CREATE ACTIVITY ICONS
 function icons() {
   // HIKING
@@ -77,7 +66,6 @@ function icons() {
   threePlus.src = bwArray[11].src;
 };
 icons();
-
 // ACTIVITY EVENT LISTENERS
 iconHike.addEventListener('click', function() {
   handleIcon(activityItems[0]);
@@ -119,7 +107,6 @@ iconCamp.addEventListener('click', function() {
   backcountrySkiing.src = bwArray[3].src;
   carCamping.src = colorArray[4].src;
 });
-
 // ACTIVITY EVENT HANDLER
 function handleIcon(icon) {
   var finalList = document.getElementById('finalList');
@@ -130,7 +117,6 @@ function handleIcon(icon) {
   }
   // console.log(essentials);
 };
-
 // WEATHER EVENT LISTENERS
 iconSunny.addEventListener('click', function() {
   handleIcon2(activityItems[5]);
@@ -168,7 +154,6 @@ function handleIcon2(icon) {
     essentials.push(icon[i]);
   }
 };
-
 // DURATION EVENT LISTENERS
 iconOne.addEventListener('click', function() {
   handleIcon3(activityItems[9]);
@@ -188,7 +173,6 @@ iconThree.addEventListener('click', function() {
   twoThree.src = bwArray[10].src;
   threePlus.src = colorArray[11].src;
 });
-
 // DURATION EVENT HANDLER
 var finalArray;
 function handleIcon3(icon) {
@@ -204,7 +188,6 @@ function handleIcon3(icon) {
     }
   })
 };
-
 // ADD LS
 var listEl = document.getElementById('tripName');
 //var chartData = localStorage.getItem();
@@ -216,8 +199,7 @@ function getLocalStorage() {
     console.log('Local storage empty!! Initializing!');
     localStorage.setItem(listName, JSON.stringify(finalArray));
   }
-}
-
+};
 // EQUIP ME BUTTON
 var listName;
 results.addEventListener('click', handleButton);
@@ -246,12 +228,13 @@ function handleButton(e) {
   saveButton.style.display = 'block';
   clearList.style.display = 'block';
 };
-
-function Trip(tripName, tripList) {
-  this.name = tripName;
-  this.list = tripList;
+function Trip(tripName, tripList, objDes, objDetails, objWish) {
+ this.names = tripName;
+ this.lists = tripList;
+ this.destination = '';
+ this.details = '';
+ this.wish = '';
 };
-
 function checkLS() {
   if (localStorage.totalTrips) {
     var z = localStorage.getItem('totalTrips');
@@ -260,10 +243,8 @@ function checkLS() {
   }
 };
 checkLS();
-
 // SAVE BUTTON
 var totalTrips = [];
-
 saveButton.addEventListener('click', handleSave);
 function handleSave(e) {
   if (localStorage.totalTrips) {
@@ -271,25 +252,16 @@ function handleSave(e) {
     var a = JSON.parse(z);
     totalTrips = a;
   }
-  var newTrip = new Trip(listName, finalArray);
+  var newTrip = new Trip(listName, finalArray, '', '', '');
   totalTrips.push(newTrip);
   console.log(totalTrips);
 
   var b = JSON.stringify(totalTrips);
   localStorage.setItem('totalTrips', b);
 };
-
 // CLEAR LIST BUTTON
 clearList.addEventListener('click', handleClearList);
 function handleClearList() {
   // lsClear.style.display = 'block';
   location.reload(false);
-}
-
-// // CLEAR LS BUTTON AND RESTART PAGE
-// var clearLS = document.getElementById('lsClear');
-// var handleLSClear = function() {
-//   console.log('clearing Local Storage');
-//   localStorage.clear();
-// };
-// clearLS.addEventListener('click', handleLSClear);
+};
