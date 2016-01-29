@@ -1,138 +1,132 @@
-'use strict'
+'use strict';
 
-var allTripsArray = [];
-var placeArray = [];
-var detailsArray = [];
-var extraStuffArray = [];
-
-var pastLists = document.getElementById('past-lists'); //DOM ids
-var submit = document.getElementById('submit');
-var saveButton = document.getElementById('save-past-list');
-var deleted = document.getElementById('delete');
-var selectAnother = document.getElementById('selectAnother');
-
-var savedTripType = localStorage.getItem('totalTrips');
-var savedPlace = localStorage.getItem('placePersist');
-var savedDetails = localStorage.getItem('detailsPersist');
-var savedExtraStuff = localStorage.getItem('extraStuffPersist');
-
-if (savedPlace) {
-  placeArray = JSON.parse(savedPlace);
-  detailsArray = JSON.parse(savedDetails);
-  extraStuffArray = JSON.parse(savedExtraStuff);
-} else {
-  console.log('storage is empty for these arrays, initializing!');
-}
-if (savedTripType) { //test localStorage
-  allTripsArray = JSON.parse(savedTripType);
-  console.log(allTripsArray);
-} else {
-  alert('You have no saved lists. Click on the Equip tab to get started!')
-}
-function renderJournal() {
-  event.preventDefault();
-  var where = event.target.whereTo.value; //form data
-  var details = event.target.detail.value;
-  var extra = event.target.extras.value;
-  placeArray.push(where);
-  detailsArray.push(details);
-  extraStuffArray.push(extra);
-
-  event.target.whereTo.value = null; //clear forms
-  event.target.detail.value = null;
-  event.target.extras.value= null;
-  localStorage.setItem('placePersist', JSON.stringify(placeArray));
-  localStorage.setItem('detailsPersist', JSON.stringify(detailsArray));
-  localStorage.setItem('extraStuffPersist', JSON.stringify(extraStuffArray));
-  location.reload(false);
-}
-function addInput() {
-  var dropdown = document.getElementById('dropdown');
-  for(var i = 0; i < allTripsArray.length; i ++) {
-    var el = document.createElement("option");
-    el.textContent = allTripsArray[i].name;
-    el.value = i;
-    dropdown.appendChild(el);
+var tripsArray = [];
+var where, details, wish;
+// TAKES INFO FROM LOCAL STORAGE
+function checkLS() {
+  if (localStorage.totalTrips) {
+    var z = localStorage.getItem('totalTrips');
+    var a = JSON.parse(z);
+    tripsArray = a;
   }
-}
-addInput();
-
-var makePastLists = function() {
-  var dropDownValue = document.getElementById('dropdown').value;
+};
+checkLS();
+// INPUT NAMES TO DROPDOWN
+function dropInput() {
+  var dropDown = document.getElementById('dropdown');
+  for(var i = 0; i < tripsArray.length; i ++) {
+    var dropNames = document.createElement("option");
+    dropNames.textContent = tripsArray[i].names;
+    dropNames.value = i;
+    dropDown.appendChild(dropNames);
+  }
+};
+dropInput();
+// CREATE DROP LIST
+function createDropList() {
+  var dropValue = document.getElementById('dropdown').value;
+  var listArticle = document.getElementById('listArticle');
+  var listContainer = document.getElementById('listContainer');
+  listArticle.removeChild(listContainer);
+  var listContainer = document.createElement('ul');
+  listContainer.setAttribute('id', 'listContainer');
+  listArticle.appendChild(listContainer);
+  if (!dropValue) {
+    alert('Head to the EQUIP tab to get a list started');
+  } else {
+    var emptyList = [];
+    for (var i = 0; i < tripsArray[dropValue].lists.length; i++) {
+      emptyList.push(tripsArray[dropValue].lists[i]);
+      var equipEl = document.createElement('li');
+      equipEl.textContent = emptyList[i];
+      listContainer.appendChild(equipEl);
+    }
+  }
+};
+// PUT VALUES INTO LOCAL STORAGE
+function newLS() {
+  var dropValue = document.getElementById('dropdown').value;
+  where = document.getElementById('where').value;
+  tripsArray[dropValue].destination = where;
+  details = document.getElementById('details').value;
+  tripsArray[dropValue].details = details;
+  wish = document.getElementById('wish').value;
+  tripsArray[dropValue].wish = wish;
+  // LS ARRAY
+  var storeArray = JSON.stringify(tripsArray);
+  localStorage.setItem('totalTrips', storeArray);
+};
+// PRINT FORM CONTENT
+function makePastLists() {
+  // event.preventDefault();
+  var dropValue = document.getElementById('dropdown').value;
+  var inputSection = document.getElementById('inputSection');
   var journalEntries = document.getElementById('journalEntries');
-  journalEntries.innerHTML = "";
-
-  //Destination render:
+  inputSection.removeChild(journalEntries);
+  var journalEntries = document.createElement('div');
+  journalEntries.setAttribute('id', 'journalEntries');
   var destination = document.createElement('h5');
   destination.textContent = 'Destination:';
   journalEntries.appendChild(destination);
   var inputDestination = document.createElement('p');
-  inputDestination.textContent = placeArray[dropDownValue];
+  inputDestination.textContent = tripsArray[dropValue].destination;
   journalEntries.appendChild(inputDestination);
-
-  //Trip Details render:
   var tripDetails = document.createElement('h5');
   tripDetails.textContent = 'Trip Details:';
   journalEntries.appendChild(tripDetails);
   var inputTripDetails = document.createElement('p');
-  inputTripDetails.textContent = detailsArray[dropDownValue];
+  inputTripDetails.textContent = tripsArray[dropValue].details;
   journalEntries.appendChild(inputTripDetails);
-
-  //Trip Details render:
   var wishIdBrought = document.createElement('h5');
   wishIdBrought.textContent = 'Wish I\'d Brought:'
   journalEntries.appendChild(wishIdBrought);
   var inputWish = document.createElement('p');
-  inputWish.textContent = extraStuffArray[dropDownValue];
+  inputWish.textContent = tripsArray[dropValue].wish;
   journalEntries.appendChild(inputWish);
-}
-
-var testDropValue = function() {
-  var equipList = document.getElementById('showEquipList');
-  var ulEquipList = document.getElementById('ulEquipList');
-  equipList.innerHTML = "";
-  var dropDownValue = document.getElementById('dropdown').value;
-  if (dropDownValue == null) {
-    alert('There is nothing to submit! Head to the Equip tab to get a list started');
+  inputSection.appendChild(journalEntries);
+};
+// CHECK IF DROPDOWN HAS INFOMATION
+var inputForm = document.getElementById('inputForm');
+function clearForm() {
+  where = null;
+  details = null;
+  wish = null;
+};
+function dropDownInfo() {
+  var dropValue = document.getElementById('dropdown').value;
+  var journalEntries = document.getElementById('journalEntries')
+  if (tripsArray[dropValue].destination.length === 0 && tripsArray[dropValue].details.length === 0 && tripsArray[dropValue].wish.length === 0) {
+    inputForm.removeAttribute('hidden');
+    journalEntries.style.display = 'none';
+    clearForm();
   } else {
-    var emptyList = [];
-    for (var i = 0; i < allTripsArray[dropDownValue].list.length; i++) {
-      emptyList.push(allTripsArray[dropDownValue].list[i]);
-      var equipEl = document.createElement('li');
-      equipEl.textContent = emptyList[i];
-      equipList.appendChild(equipEl);
-    }
-    ulEquipList.appendChild(equipList);
-    var equipListTitle = document.getElementById('equipListTitle');
-    equipListTitle.textContent = allTripsArray[dropDownValue].name + ' List:';
-  }
-}
-
-var hasInfo = function() {
-  var dropDownValue = document.getElementById('dropdown').value;
-  if (placeArray[dropDownValue]) {
     makePastLists();
-  } else {
-    var journalEntries = document.getElementById('journalEntries');
-    var equipList = document.getElementById('showEquipList');
-    journalEntries.innerHTML = "";
-    equipList.innerHTML = "";
-    pastLists.removeAttribute('hidden');
+    inputForm.setAttribute("hidden", true);
   }
-}
-
-var handleSubmitClick = function(event) {
-  testDropValue();
-  hasInfo();
-}
-var handleSaveClick = function(event) {
-  renderJournal();
-}
-var handleDeleteClick = function(event) {
-  console.log('deleting local storage!');
-  localStorage.clear();
-}
-
-pastLists.addEventListener('submit', handleSaveClick); //event listener
+};
+// DROPDOWN SUBMIT BUTTON
 submit.addEventListener('click', handleSubmitClick);
+function handleSubmitClick(e) {
+  e.preventDefault();
+  createDropList();
+  dropDownInfo();
+};
+// SAVE LISTS BUTTON
+var pastListButton = document.getElementById('pastListButton');
+var formArticle = document.getElementById('formArticle');
+pastListButton.addEventListener('click', handleSaveClick);
+function handleSaveClick(e) {
+  e.preventDefault();
+  console.log('THIS IS SAVED TO LOCAL STORAGE');
+  newLS();
+  makePastLists();
+  location.reload(false);
+};
+// CLEAR ALL BUTTONS
 deleted.addEventListener('click', handleDeleteClick);
+function handleDeleteClick() {
+  console.log('deleting local storage!');
+  alert("Press 'OK' to delete ALL you past list entries.");
+  location.reload(false);
+  localStorage.clear();
+};
