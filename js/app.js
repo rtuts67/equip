@@ -27,45 +27,45 @@ function Equip(names, src) {
   fullArray.push(this);
 };
 // CREATE ACTIVITY ICONS
-function icons() {
-  // HIKING
-  iconHike = document.getElementById('hiking');
-  hiking.src = bwArray[0].src;
-  // MOUNTAINEERING
-  iconMount = document.getElementById('mountaineering');
-  mountaineering.src = bwArray[1].src;
-  // SNOWBOARDING
-  iconSnowboard = document.getElementById('backcountrySnowboarding');
-  backcountrySnowboarding.src = bwArray[2].src;
-  // SKIING
-  iconSki = document.getElementById('backcountrySkiing');
-  backcountrySkiing.src = bwArray[3].src;
-  // CAMPING
-  iconCamp = document.getElementById('carCamping');
-  carCamping.src = bwArray[4].src;
-  // SUNNY
-  iconSunny = document.getElementById('sunny');
-  sunny.src = bwArray[5].src;
-  // RAINY
-  iconRainy = document.getElementById('rainy');
-  rainy.src = bwArray[6].src;
-  // CLOUDY
-  iconCloudy = document.getElementById('cloudy');
-  cloudy.src = bwArray[7].src;
-  // SNOWY
-  iconSnowy = document.getElementById('snowy');
-  snowy.src = bwArray[8].src;
-  // ONE DAY
-  iconOne = document.getElementById('lessThanOne');
-  lessThanOne.src = bwArray[9].src;
-  // TWO - THREE DAYS
-  iconTwo = document.getElementById('twoThree');
-  twoThree.src = bwArray[10].src;
-  // THREE PLUS DAYS
-  iconThree = document.getElementById('threePlus');
-  threePlus.src = bwArray[11].src;
-};
-icons();
+// function icons() {
+//   // HIKING
+//   iconHike = document.getElementById('hiking');
+//   hiking.src = bwArray[0].src;
+//   // MOUNTAINEERING
+//   iconMount = document.getElementById('mountaineering');
+//   mountaineering.src = bwArray[1].src;
+//   // SNOWBOARDING
+//   iconSnowboard = document.getElementById('backcountrySnowboarding');
+//   backcountrySnowboarding.src = bwArray[2].src;
+//   // SKIING
+//   iconSki = document.getElementById('backcountrySkiing');
+//   backcountrySkiing.src = bwArray[3].src;
+//   // CAMPING
+//   iconCamp = document.getElementById('carCamping');
+//   carCamping.src = bwArray[4].src;
+//   // SUNNY
+//   iconSunny = document.getElementById('sunny');
+//   sunny.src = bwArray[5].src;
+//   // RAINY
+//   iconRainy = document.getElementById('rainy');
+//   rainy.src = bwArray[6].src;
+//   // CLOUDY
+//   iconCloudy = document.getElementById('cloudy');
+//   cloudy.src = bwArray[7].src;
+//   // SNOWY
+//   iconSnowy = document.getElementById('snowy');
+//   snowy.src = bwArray[8].src;
+//   // ONE DAY
+//   iconOne = document.getElementById('lessThanOne');
+//   lessThanOne.src = bwArray[9].src;
+//   // TWO - THREE DAYS
+//   iconTwo = document.getElementById('twoThree');
+//   twoThree.src = bwArray[10].src;
+//   // THREE PLUS DAYS
+//   iconThree = document.getElementById('threePlus');
+//   threePlus.src = bwArray[11].src;
+// };
+// icons();
 // ACTIVITY EVENT LISTENERS
 iconHike.addEventListener('click', function() {
   handleIcon(activityItems[0]);
@@ -259,9 +259,20 @@ function handleSave(e) {
   var b = JSON.stringify(totalTrips);
   localStorage.setItem('totalTrips', b);
 };
+
 // CLEAR LIST BUTTON
 clearList.addEventListener('click', handleClearList);
 function handleClearList() {
   // lsClear.style.display = 'block';
   location.reload(false);
 };
+
+(function(module){
+  console.log("Anything");
+  $.getJSON('../data.json').then(
+    function(data){
+      console.log(data);
+      // var template = Handlebars.compile($('#template').text());
+      // $('#biographies').append(template(readyData));
+    });
+})(window);
