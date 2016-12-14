@@ -1,0 +1,360 @@
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+  .column,
+  .columns {
+    width: 100%;
+    float: left;
+    box-sizing: border-box; }
+
+  .icons {
+      padding: auto;
+      cursor: pointer;
+    }
+
+    /* For devices larger than 400px */
+    @media only screen and (min-width: 1px) and (max-width: 640px) {
+      .container {
+        width: 85%;
+        padding: 0;
+        }
+      }
+
+      /* For devices larger than 550px */
+      @media only screen and (min-width: 641px) and (max-width: 950px){
+        .container {
+          width: 80%; }
+          .column,
+          .columns {
+            margin-left: 4%; }
+            .column:first-child,
+            .columns:first-child {
+              margin-left: 0; }
+
+              .one.column,
+              .one.columns                    { width: 4.66666666667%; }
+              .two.columns                    { width: 13.3333333333%; }
+              .three.columns                  { width: 22%;            }
+              .four.columns                   { width: 30.6666666667%; }
+              .five.columns                   { width: 39.3333333333%; }
+              .six.columns                    { width: 48%;            }
+              .seven.columns                  { width: 56.6666666667%; }
+              .eight.columns                  { width: 65.3333333333%; }
+              .nine.columns                   { width: 74.0%;          }
+              .ten.columns                    { width: 82.6666666667%; }
+              .eleven.columns                 { width: 91.3333333333%; }
+              .twelve.columns                 { width: 100%; margin-left: 0; }
+
+              .one-third.column               { width: 30.6666666667%; }
+              .two-thirds.column              { width: 65.3333333333%; }
+
+              .one-half.column                { width: 48%; }
+
+              /* Offsets */
+              .offset-by-one.column,
+              .offset-by-one.columns          { margin-left: 8.66666666667%; }
+              .offset-by-two.column,
+              .offset-by-two.columns          { margin-left: 17.3333333333%; }
+              .offset-by-three.column,
+              .offset-by-three.columns        { margin-left: 26%;            }
+              .offset-by-four.column,
+              .offset-by-four.columns         { margin-left: 34.6666666667%; }
+              .offset-by-five.column,
+              .offset-by-five.columns         { margin-left: 43.3333333333%; }
+              .offset-by-six.column,
+              .offset-by-six.columns          { margin-left: 52%;            }
+              .offset-by-seven.column,
+              .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+              .offset-by-eight.column,
+              .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+              .offset-by-nine.column,
+              .offset-by-nine.columns         { margin-left: 78.0%;          }
+              .offset-by-ten.column,
+              .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+              .offset-by-eleven.column,
+              .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+              .offset-by-one-third.column,
+              .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+              .offset-by-two-thirds.column,
+              .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+              .offset-by-one-half.column,
+              .offset-by-one-half.columns     { margin-left: 52%; }
+
+            }
+
+    @media only screen and (min-width: 951px) {
+      .container {
+        width: 75%;
+        padding: 0;
+        }  
+    }
+
+.cButton {
+  display: flex;
+  padding: 0px 5px 0px 5px;
+}
+
+.sButton {
+  display: flex;
+  padding: 0px 5px 0px 5px;
+}
+
+.sButton > a {
+  text-decoration: none;
+}
+
+/*RESOURCES PAGE*/
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.buttons {
+  border-radius: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+.bioContainer {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+  padding: 0px 10px 10px 10px;
+  background-color: white;
+}
+.twitter-timeline {
+  display: flex;
+  text-align: center;
+}
+#finalList {
+  display: flex;
+  justify-content: center;
+}
+
+#loadList {
+  display: flex;
+  flex-direction: column;
+  list-style: square;
+}
+
+#buttonList {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 20px 20px;
+}
+
+#results {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#results:hover {
+  cursor: pointer;
+}
+
+#buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#finalList {
+  /*display: flex;*/
+  justify-content: center;
+}
+
+
+#resourceInfo {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+#resourceInstructions {
+
+}
+
+#productResources {
+  /*display: flex;*/
+  padding: 10px 20px 10px 20px;
+}
+
+#productResources img {
+}
+
+/*ABOUT PAGE*/
+
+
+#biographies {
+  justify-content: center;
+  padding: 0px 10px 10px 10px;
+  background-color: white;
+
+}
+
+#aboutSection {
+  flex-direction: column;
+  background-color: white;
+  padding: 0px 10px 10px 10px;
+}
+
+#bios {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px 40px 10px;
+  width: auto;
+  height: 200px;
+  background-color: white;
+  justify-content: center;
+}
+
+#biopic {
+}
+
+#bioborder {
+  border: 1px dashed #C9CCC9;
+  width: 70%;
+  overflow: scroll;
+}
+
+#bioname {
+  padding: 10px 20px 0px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+#biotext {
+  padding: 5px 20px 0px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#tweetflex {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: flex-start;
+}
+
+#tweets {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 20px 20px;
+}
+
+#tweetfeed {
+  display: inline-flex;
+}
+
+
+/*#finalList {
+  display: flex;
+  justify-content: center;
+}*/
+
+/*FORUM*/
+
+#journal {
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#headerLogo {
+  display: flex;
+  align-self: center;
+}
+
+div#slider {
+  overflow: hidden;
+}
+
+div#slider figure img {
+  width: 20%;
+  float: left;
+}
+
+div#slider figure {
+  position: relative;
+  width: 500%;
+  margin: -150px 0px 0px 0px;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite;
+}
+
+/*EQUIP PAGE*/
+
+#bigFlex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#equipContent {
+  flex-direction: column;
+}
+
+#tripNames {
+  display: flex;
+  justify-content: center;
+}
+
+#tripName {
+}
+
+#iconSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#activities, #weather, #duration {
+  display: flex;
+  justify-content: center;
+}
+
+#footer {
+  flex-direction: row;
+}

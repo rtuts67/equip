@@ -19,3 +19,11 @@ gloves http://www.rei.com/search?q=gloves
 waterbottle http://www.rei.com/search?q=water+bottles
 boots http://www.rei.com/search?q=hiking+boots
 backpack http://www.rei.com/search?q=backpack+for+backpacking
+
+
+New Rosie-Chris:
+
+1) Make website mobile friendly by adding media-query
+2) Implement templating using handle-bars
+3) Replace DOM elements with JQUERY
+4) Implement SMACCs principals
