@@ -24,6 +24,10 @@ backpack http://www.rei.com/search?q=backpack+for+backpacking
 New Rosie-Chris:
 
 1) Make website mobile friendly by adding media-query
+Completed this by adding mobile responsive properties to CSS to any viewport less than 640px via media-query.
 2) Implement templating using handle-bars
+Other errors were affecting this from working but attempted to refactor none-theless to about me.
 3) Replace DOM elements with JQUERY
+This was used a little with handle-bars refactoring.
 4) Implement SMACCs principals
+Completed this by creating a base.css file with all of our generic elements. We placed all the id's and classes into our layout.css file. We also refactored the forum.css file into the appropriate SMACCs related principals. We also fixed the resources.html to open the links on new tabs. 
